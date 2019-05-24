@@ -1,0 +1,31 @@
+MODEL:
+  TYPE: ResNet50_fast_rcnn
+  NUM_CLASSES: 21
+NUM_GPUS: 2
+SOLVER:
+  STEP_SIZE: 66000  # default: 40000
+  MAX_ITER: 80000 # default: 55000
+  BASE_LR: 0.002
+RESNETS:
+  STRIDE_1X1: False
+  # NOTE: Set to True if using the MSRA weights below. Otherwise False.
+  # STRIDE_1X1: True
+TRAIN:
+  # C2 ImageNet Supervised RN50 weights
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_in1k_supervised.pkl
+  # C2 Places205 Supervised RN50 weights
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_places205_supervised.pkl
+  ## Jigsaw weights
+  # ResNet50 Jigsaw detection IN1k pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_in1k_pretext.pkl
+  # ResNet50 Jigsaw detection IN22k pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_in22k_pretext.pkl
+  # ResNet50 Jigsaw detection YFCC100M pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_yfcc100m_pretext.pkl
+  DATASETS: ('voc_2007_trainval','voc_2012_trainval',)
+  PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_trainval.pkl','https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2012_trainval.pkl',)
+TEST:
+  DATASETS: ('voc_2007_test',)
+  PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_test.pkl',)
+USE_NCCL: False
+OUTPUT_DIR: ./output

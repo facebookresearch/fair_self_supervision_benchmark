@@ -1,0 +1,27 @@
+DATASET: coco
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 80
+  MODEL_NAME: caffenet_bvlc_supervised_finetune_linear
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [
+    conv1_s4k19_resize,
+    conv2_s3k12_resize,
+    conv3_s1k9_resize,
+    conv4_s1k9_resize,
+    conv5_s1k8_resize,
+    fc7]
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  GLOBAL_RESIZE_VALUE: 227
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: [mean_normalization]
+TEST:
+  DATA_TYPE: val
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  # CaffeNet BVLC weights trained on IN1K
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/caffenet_bvlc_in1k_supervised.npy

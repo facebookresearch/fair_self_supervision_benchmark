@@ -1,0 +1,51 @@
+DATASET: voc2007
+NUM_DEVICES: 1
+LOGGER_FREQUENCY: 10
+COLORIZATION:
+  COLOR_ON: True
+MODEL:
+  TEST_MODEL: True
+  FINE_TUNE: True
+  NUM_CLASSES: 20
+  MODEL_NAME: alexnet_colorize_finetune_full
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  MEMONGER: True
+  BN_NO_SCALE_SHIFT: False
+  NO_BIAS_DECAY: True
+  FC_INIT_TYPE: xavier
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 16
+  EVALUATION_FREQUENCY: 314
+  SCALE: 256
+  CROP_SIZE: 227
+  DATA_TRANSFORMS: [scale, random_crop, horizontal_flip]
+  DATA_PROCESSING: []
+  # AlexNet Colorization IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_in1k_pretext.pkl
+  # AlexNet Colorization IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_in22k_pretext.pkl
+  # AlexNet Colorization YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_yfcc100m_pretext.pkl
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 160
+  CROP_SIZE: 227
+  TEN_CROP: True
+  TEN_CROP_TYPE: random
+SOLVER:
+  BASE_LR: 0.005
+  STEP_SIZES: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+  NUM_ITERATIONS: 80000
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_BN: 0.0
+  MOMENTUM: 0.9
+  GAMMA: 0.5
+  NESTEROV: True
+METRICS:
+  TYPE: AP
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 314

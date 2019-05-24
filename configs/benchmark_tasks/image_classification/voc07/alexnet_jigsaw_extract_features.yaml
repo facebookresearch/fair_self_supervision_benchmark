@@ -1,0 +1,31 @@
+DATASET: voc2007
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 20
+  MODEL_NAME: alexnet_jigsaw_finetune_linear
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [
+    conv1_s0_s9k28_resize,
+    conv2_s0_s6k24_resize,
+    conv3_s0_bn_relu_s3k14_resize,
+    conv4_s0_bn_relu_s3k14_resize,
+    conv5_s0_bn_relu_s2k16_resize]
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  GLOBAL_RESIZE_VALUE: 227
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: [color_normalization]
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  # AlexNet Jigsaw IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_in1k_pretext.pkl
+  # AlexNet Jigsaw IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_in22k_pretext.pkl
+  # AlexNet Jigsaw YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_yfcc100m_pretext.pkl

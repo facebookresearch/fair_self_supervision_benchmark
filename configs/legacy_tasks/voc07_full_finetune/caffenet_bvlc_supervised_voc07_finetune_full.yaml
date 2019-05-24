@@ -1,0 +1,48 @@
+DATASET: voc2007
+NUM_DEVICES: 1
+LOGGER_FREQUENCY: 10
+MODEL:
+  TEST_MODEL: True
+  NUM_CLASSES: 20
+  MODEL_NAME: caffenet_bvlc_supervised_finetune_full
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  BN_NO_SCALE_SHIFT: True
+  NO_BIAS_DECAY: False
+  FINE_TUNE: True
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 16
+  EVALUATION_FREQUENCY: 314
+  SCALE: 256
+  CROP_SIZE: 227
+  DATA_TRANSFORMS: [random_sized_crop, horizontal_flip]
+  DATA_PROCESSING: [mean_normalization]
+  IMG_CROP_MIN_AREA: 0.1
+  IMG_CROP_MAX_AREA: 0.5
+  # IN1k supervised CaffeNet BVLC weights
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/caffenet_bvlc_in1k_supervised.npy
+  # Places205 supervised model
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/caffenet_bvlc_places205_supervised.pkl
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 160
+  CROP_SIZE: 227
+  TEN_CROP: True
+  TEN_CROP_TYPE: random
+SOLVER:
+  BASE_LR: 0.001
+  STEP_SIZES: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+  NUM_ITERATIONS: 80000
+  WEIGHT_DECAY: 0.000001
+  MOMENTUM: 0.9
+  GAMMA: 0.5
+  NESTEROV: True
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 314
+METRICS:
+  TYPE: AP

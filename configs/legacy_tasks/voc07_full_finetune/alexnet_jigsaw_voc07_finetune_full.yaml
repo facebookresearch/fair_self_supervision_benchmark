@@ -1,0 +1,51 @@
+DATASET: voc2007
+NUM_DEVICES: 1
+LOGGER_FREQUENCY: 10
+MODEL:
+  TEST_MODEL: True
+  NUM_CLASSES: 20
+  MODEL_NAME: alexnet_jigsaw_finetune_full
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  MEMONGER: True
+  FINE_TUNE: True
+  BN_NO_SCALE_SHIFT: True
+  NO_BIAS_DECAY: True
+  FC_INIT_TYPE: gaussian
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 16
+  EVALUATION_FREQUENCY: 314
+  SCALE: 256
+  CROP_SIZE: 227
+  DATA_TRANSFORMS: [random_sized_crop, horizontal_flip]
+  DATA_PROCESSING: [color_normalization]
+  IMG_CROP_MIN_AREA: 0.1
+  IMG_CROP_MAX_AREA: 0.5
+  # AlexNet Jigsaw IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_in1k_pretext.pkl
+  # AlexNet Jigsaw IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_in22k_pretext.pkl
+  # AlexNet Jigsaw YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_jigsaw_yfcc100m_pretext.pkl
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 160
+  CROP_SIZE: 227
+  TEN_CROP: True
+  TEN_CROP_TYPE: random
+SOLVER:
+  BASE_LR: 0.001
+  STEP_SIZES: [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+  NUM_ITERATIONS: 80000
+  WEIGHT_DECAY: 0.000001
+  WEIGHT_DECAY_BN: 0.0001
+  MOMENTUM: 0.9
+  GAMMA: 0.5
+  NESTEROV: True
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 314
+METRICS:
+  TYPE: AP

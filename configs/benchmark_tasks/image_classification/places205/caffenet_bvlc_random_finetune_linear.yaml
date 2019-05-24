@@ -1,0 +1,38 @@
+DATASET: places205
+LOGGER_FREQUENCY: 10
+LOSS_BLOBS: [loss_c1, loss_c2, loss_c3, loss_c4, loss_c5]
+ACCURACY_BLOBS: [pred_c1, pred_c2, pred_c3, pred_c4, pred_c5]
+MODEL:
+  NUM_CLASSES: 205
+  MODEL_NAME: caffenet_bvlc_supervised_finetune_linear
+  MEMONGER: False
+  BN_MOMENTUM: 0.999
+  BN_EPSILON: 1.0000001e-5
+  BN_NO_SCALE_SHIFT: True
+  NO_BIAS_DECAY: False
+  FINE_TUNE: True
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  GLOBAL_RESIZE_VALUE: 256
+  DATA_TRANSFORMS: [global_resize, center_crop, horizontal_flip]
+  DATA_PROCESSING: [mean_normalization]
+TEST:
+  DATA_TYPE: val
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+SOLVER:
+  BASE_LR: 0.01
+  STEP_SIZES: [40000, 40000, 40000]
+  NUM_ITERATIONS: 140000
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_BN: 0.0
+  MOMENTUM: 0.9
+  GAMMA: 0.1
+  NESTEROV: False
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 5000
+METRICS:
+  TYPE: topk

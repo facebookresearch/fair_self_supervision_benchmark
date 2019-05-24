@@ -1,0 +1,49 @@
+DATASET: places205
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+LOSS_BLOBS: [loss_conv1, loss_conv2, loss_conv3, loss_conv4, loss_conv5, loss_pool1, loss_pool5]
+ACCURACY_BLOBS: [pred_conv1, pred_conv2, pred_conv3, pred_conv4, pred_conv5, pred_pool1, pred_pool5]
+MODEL:
+  NUM_CLASSES: 205
+  DEPTH: 50
+  MODEL_NAME: resnet_jigsaw_finetune_linear
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  FC_INIT_STD: 0.01
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  FINE_TUNE: True
+  BN_NO_SCALE_SHIFT: True
+  NO_BIAS_DECAY: False
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  EVALUATION_FREQUENCY: 5000
+  SCALE: 256
+  CROP_SIZE: 224
+  DATA_TRANSFORMS: [random_sized_crop, horizontal_flip]
+  DATA_PROCESSING: [color_normalization, lighting, color_jitter]
+  # ResNet50 Jigsaw IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_in1k_pretext.pkl
+  # ResNet50 Jigsaw IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_in22k_pretext.pkl
+  # ResNet50 Jigsaw YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_yfcc100m_pretext.pkl
+TEST:
+  DATA_TYPE: val
+  BATCH_SIZE: 256
+  CROP_SIZE: 224
+SOLVER:
+  BASE_LR: 0.01
+  STEP_SIZES: [40000, 40000, 40000]
+  NUM_ITERATIONS: 140000
+  WEIGHT_DECAY: 0.0001
+  WEIGHT_DECAY_BN: 0.0
+  MOMENTUM: 0.9
+  GAMMA: 0.1
+  NESTEROV: True
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 5000
+METRICS:
+  TYPE: topk
