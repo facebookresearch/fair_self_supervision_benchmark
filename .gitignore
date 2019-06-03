@@ -7,3 +7,9 @@ dist/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+
+# Run-time specific - contains checkpoints, model prototxt etc.
+places205/
+imagenet1k/
+coco/
+voc2007/

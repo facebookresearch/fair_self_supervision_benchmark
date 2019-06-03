@@ -9,10 +9,10 @@ MODEL:
   EXTRACT_FEATURES_ONLY: True
   EXTRACT_BLOBS: [
     res_conv1_bn_resize,
-    res2_2_branch2c_bn_s0_resize,
-    res3_3_branch2c_bn_s0_resize,
-    res4_5_branch2c_bn_s0_resize,
-    res5_2_branch2c_bn_s0_resize]
+    res2_2_branch2c_bn_s8k16_resize,
+    res3_3_branch2c_bn_s5k13_resize,
+    res4_5_branch2c_bn_s3k8_resize,
+    res5_2_branch2c_bn_s1k6_resize]
 TRAIN:
   DATA_TYPE: train
   BATCH_SIZE: 256

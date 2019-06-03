@@ -24,7 +24,7 @@ def get_data_labels_file(dataset, partition):
     data_type = 'TRAIN' if partition == 'train' else 'TEST'
     data_file = cfg[data_type].DATA_FILE
     labels_file = cfg[data_type].LABELS_FILE
-    assert os.path.exists(data_file), "Please specify the data file"
-    assert os.path.exists(labels_file), "Please specify the labels file"
+    assert os.path.exists(data_file), "Please specify {} data file".format(data_type)
+    assert os.path.exists(labels_file), "Please specify {} labels file".format(data_type)
     output = [data_file, labels_file]
     return output
