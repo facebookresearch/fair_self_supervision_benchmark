@@ -185,7 +185,7 @@ def main():
         state_dict = convert_bgr2rgb(state_dict)
 
     state_dict = _rename_weights_for_resnet(state_dict, stages)
-
+    state_dict = dict(state_dict=state_dict)
     logger.info('Saving converted weights to: {}'.format(args.output_model))
     torch.save(state_dict, args.output_model)
     logger.info('Done!!')
