@@ -139,7 +139,7 @@ def initialize_master_device_model_params(model, weights_file):
         if six.PY2:
             blobs = np.load(weights_file)[()]
         else:
-            blobs = np.load(weights_file, encoding='latin1')[()]
+            blobs = np.load(weights_file, allow_pickle=True, encoding='latin1')[()]
     else:
         blobs = load_object(weights_file)
 

@@ -229,7 +229,7 @@ __C.RNG_SEED = 2
 __C.LOGGER_FREQUENCY = 10
 
 # Download the models specified as urls to the DOWNLOAD_CACHE.
-__C.DOWNLOAD_CACHE = '/tmp/fair_self_supervision_benchmark_cache/'
+__C.DOWNLOAD_CACHE = '/tmp/fair_self_supervision_benchmark_cache'
 
 
 def merge_dicts(dict_a, dict_b, stack=None):

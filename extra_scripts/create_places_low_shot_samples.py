@@ -78,8 +78,8 @@ def generate_independent_sample(opts):
                 opts.output_path, 'train_images_{}.npy'.format(suffix))
             out_lbls_file = os.path.join(
                 opts.output_path, 'train_labels_{}.npy'.format(suffix))
-            logger.info('Saving imgs file: {} {}'.format(out_img_file, out_imgs.shape))
-            logger.info('Saving lbls file: {} {}'.format(out_lbls_file, out_lbls.shape))
+            logger.info('Saving imgs file: {} {}'.format(out_img_file, len(out_imgs)))
+            logger.info('Saving lbls file: {} {}'.format(out_lbls_file, len(out_lbls)))
             np.save(out_img_file, out_imgs)
             np.save(out_lbls_file, out_lbls)
     logger.info('Done!')

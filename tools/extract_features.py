@@ -28,7 +28,7 @@ import sys
 
 from self_supervision_benchmark.core.config import config as cfg
 from self_supervision_benchmark.core.config import (
-    cfg_from_file, cfg_from_list, print_cfg
+    cfg_from_file, cfg_from_list, assert_cfg, print_cfg
 )
 from self_supervision_benchmark.modeling import model_builder
 from self_supervision_benchmark.utils import helpers, checkpoints
@@ -150,6 +150,7 @@ def main():
         cfg_from_file(args.config_file)
     if args.opts is not None:
         cfg_from_list(args.opts)
+    assert_cfg()
     print_cfg()
     extract_features(args)
 
