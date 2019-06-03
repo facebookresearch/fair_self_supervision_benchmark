@@ -37,7 +37,7 @@ def validate_files(input_files):
     """
     output_files = []
     for item in input_files:
-        if len(item.split('_')) == 2:
+        if len(item.split('/')[-1].split('_')) == 2:
             output_files.append(item)
     return output_files
 
