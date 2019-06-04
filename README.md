@@ -24,6 +24,7 @@ The goal of fair_self_supervision_benchmark is to standardize the methodology fo
 <img align="left" src="demo/obj-detection.png" alt="Object Detection" title="Object Detection" hspace="20"/>
 <img align="left" src="demo/surface-normal.png" alt="Surface Normal Estimation" title="Surface Normal Estimation" hspace="20"/>
 <img align="left" src="demo/visual-navigation.png" alt="Visual Navigation" title="Visual Navigation" hspace="20"/>
+<br/><br/><br/><br/><br/>
 
 These Benchmark tasks use the network architectures:
 
