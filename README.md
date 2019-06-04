@@ -20,6 +20,11 @@ The goal of fair_self_supervision_benchmark is to standardize the methodology fo
   - [Fast R-CNN](https://arxiv.org/abs/1504.08083)
   - [Faster R-CNN](https://arxiv.org/abs/1506.01497)
 
+<img align="left" src="demo/img-cls.png" alt="Image Classification" title="Image Classification" hspace="20"/>
+<img align="left" src="demo/obj-detection.png" alt="Object Detection" title="Object Detection" hspace="20"/>
+<img align="left" src="demo/surface-normal.png" alt="Surface Normal Estimation" title="Surface Normal Estimation" hspace="20"/>
+<img align="left" src="demo/visual-navigation.png" alt="Visual Navigation" title="Visual Navigation" hspace="20"/>
+
 These Benchmark tasks use the network architectures:
 
 - [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
