@@ -21,11 +21,10 @@ The goal of fair_self_supervision_benchmark is to standardize the methodology fo
   - [Faster R-CNN](https://arxiv.org/abs/1506.01497)
 
 <p align="center">
-<!--   <img src="/img1.png" width="100" /> -->
-  <img src="demo/img-cls.png" alt="Image Classification" title="Image Classification" width="100" />
-  <img src="demo/obj-detection.png" alt="Object Detection" title="Object Detection" width="100" />
-  <img src="demo/surface-normal.png" alt="Surface Normal Estimation" title="Surface Normal Estimation" width="100" />
-  <img src="demo/visual-navigation.png" alt="Visual Navigation" title="Visual Navigation" width="100" />
+  <img src="demo/img-cls.png" alt="Image Classification" title="Image Classification" width="200" />
+  <img src="demo/obj-detection.png" alt="Object Detection" title="Object Detection" width="200" />
+  <img src="demo/surface-normal.png" alt="Surface Normal Estimation" title="Surface Normal Estimation" width="200" />
+  <img src="demo/visual-navigation.png" alt="Visual Navigation" title="Visual Navigation" width="200" />
 </p>
 
 These Benchmark tasks use the network architectures:
