@@ -7,8 +7,9 @@ benchmark release will provided a consistent evaluation strategy that will allow
 measuring the progress in self-supervision easily.
 
 ## Introduction
-The goal of fair_self_supervision_benchmark is to standardize the methodology for evaluating quality of visual representations learned by various self-supervision approaches. Further, it provides evaluation on a variety of *benchmark tasks*:
+The goal of fair_self_supervision_benchmark is to standardize the methodology for evaluating quality of visual representations learned by various self-supervision approaches. Further, it provides evaluation on a variety of tasks as follows:
 
+**Benchmark tasks**: The benchmark tasks are based on principle: a good representation (1) transfers to *many* different tasks, and, (2) transfers with *limited* supervision and *limited* fine-tuning. The tasks are as follows.
 - Image Classification
   - [VOC07](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf)
   - [COCO2014](https://arxiv.org/abs/1405.0312)
@@ -32,7 +33,7 @@ These Benchmark tasks use the network architectures:
 - [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 - [ResNet50](https://arxiv.org/abs/1512.03385)
 
-We also classify some commonly used evaluation tasks as *legacy tasks* for reasons mentioned in Section 7 of [paper](https://arxiv.org/abs/1905.01235):
+**Legacy tasks:** We also classify some commonly used evaluation tasks as legacy tasks for reasons mentioned in Section 7 of [paper](https://arxiv.org/abs/1905.01235). The tasks are as follows:
 
 - [ImageNet-1K](http://www.image-net.org/papers/imagenet_cvpr09.pdf) classification task
 - [VOC07](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf) full finetuning
@@ -43,7 +44,7 @@ We also classify some commonly used evaluation tasks as *legacy tasks* for reaso
 
 ## License
 
-fair_self_supervision_benchmark is Attribution-NonCommercial 4.0 International licensed, as found in the LICENSE file.
+fair_self_supervision_benchmark is CC-NC 4.0 International licensed, as found in the LICENSE file.
 
 ## Citing fair_self_supervision_benchmark
 
@@ -68,7 +69,7 @@ After installation, please see [`GETTING_STARTED.md`](GETTING_STARTED.md) for ho
 
 ## Model Zoo
 
-We provide models used in our [paper](https://arxiv.org/abs/1905.01235) in the [Model Zoo][MODEL_ZOO.md].
+We provide models used in our [paper](https://arxiv.org/abs/1905.01235) in the [`Model Zoo`](MODEL_ZOO.md).
 
 ## References
 
