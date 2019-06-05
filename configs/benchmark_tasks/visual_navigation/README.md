@@ -63,7 +63,7 @@ vim ../teas/models/taskonomyencoder.py
 
 - Now, we are ready to train. Following are the example command for training using the model weights and training for random initialization. We do 5 independent training runs using the same setup and report the mean/std results as in [Figure 6 of our paper](https://arxiv.org/pdf/1905.01235.pdf).
 
-0. For random initialization:
+    - For random initialization:
 
 ```bash
 python Gibson_baseline.py \
@@ -73,7 +73,7 @@ python Gibson_baseline.py \
     cfg.training.num_frames=400000
 ```
 
-0. For initalization using weights from supervised/self-supervised training:
+    - For initalization using weights from supervised/self-supervised training:
 
 ```bash
 python Gibson_baseline.py \
@@ -84,4 +84,3 @@ python Gibson_baseline.py \
     cfg.learner.taskonomy_encoder='/tmp/resnet50_jigsaw_in22k_pretext_gibson.dat' \
     cfg.training.num_frames=400000
 ```
-
