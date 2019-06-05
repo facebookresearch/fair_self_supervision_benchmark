@@ -65,22 +65,21 @@ vim ../teas/models/taskonomyencoder.py
 
     - For random initialization:
 
-```bash
-python Gibson_baseline.py \
-    /tmp/random_run1 run_cfg with uuid=aws_navigate_random_run1 \
-    cfg.saving.visdom_server='<your_server>' cfg_navigation \
-    cfg.env.start_locations_file=None \
-    cfg.training.num_frames=400000
-```
-
+        ```bash
+        python Gibson_baseline.py \
+            /tmp/random_run1 run_cfg with uuid=aws_navigate_random_run1 \
+            cfg.saving.visdom_server='<your_server>' cfg_navigation \
+            cfg.env.start_locations_file=None \
+            cfg.training.num_frames=400000
+        ```
     - For initalization using weights from supervised/self-supervised training:
 
-```bash
-python Gibson_baseline.py \
-    /tmp/in22k_run1 run_cfg with uuid=aws_navigate_in22k_run1 \
-    cfg.saving.visdom_server='<your_server>' cfg_navigation \
-    cfg.env.start_locations_file=None \
-    cfg.learner.perception_network='features_only' \
-    cfg.learner.taskonomy_encoder='/tmp/resnet50_jigsaw_in22k_pretext_gibson.dat' \
-    cfg.training.num_frames=400000
-```
+        ```bash
+        python Gibson_baseline.py \
+            /tmp/in22k_run1 run_cfg with uuid=aws_navigate_in22k_run1 \
+            cfg.saving.visdom_server='<your_server>' cfg_navigation \
+            cfg.env.start_locations_file=None \
+            cfg.learner.perception_network='features_only' \
+            cfg.learner.taskonomy_encoder='/tmp/resnet50_jigsaw_in22k_pretext_gibson.dat' \
+            cfg.training.num_frames=400000
+        ```
