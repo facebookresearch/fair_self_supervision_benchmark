@@ -1,0 +1,32 @@
+MODEL:
+  TYPE: ResNet50_fast_rcnn
+  NUM_CLASSES: 21
+  FASTER_RCNN: True
+NUM_GPUS: 2
+SOLVER:
+  STEP_SIZE: 65000
+  MAX_ITER: 100000
+  BASE_LR: 0.002
+RESNETS:
+  STRIDE_1X1: False
+  # NOTE: Set to True if using the MSRA weights below. Otherwise False.
+  # STRIDE_1X1: True
+TRAIN:
+  # C2 ImageNet Supervised RN50 weights
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_in1k_supervised.pkl
+  # C2 Places205 Supervised RN50 weights
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_places205_supervised.pkl
+  ## Jigsaw weights
+  # ResNet50 Jigsaw detection IN1k pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_in1k_pretext.pkl
+  # ResNet50 Jigsaw detection IN22k pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_in22k_pretext.pkl
+  # ResNet50 Jigsaw detection YFCC100M pretext - best
+  WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_yfcc100m_pretext.pkl
+  DATASETS: ('voc_2007_trainval','voc_2012_trainval',)
+TEST:
+  DATASETS: ('voc_2007_test',)
+  RPN_PRE_NMS_TOP_N: 2000
+  RPN_POST_NMS_TOP_N: 1000
+USE_NCCL: False
+OUTPUT_DIR: ./output

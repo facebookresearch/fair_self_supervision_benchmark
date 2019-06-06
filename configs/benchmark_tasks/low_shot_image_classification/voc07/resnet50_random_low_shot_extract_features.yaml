@@ -1,0 +1,27 @@
+DATASET: voc2007
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 20
+  DEPTH: 50
+  MODEL_NAME: resnet_supervised_finetune_linear
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [
+    res_conv1_bn_resize,
+    res2_2_branch2c_bn_s8k16_resize,
+    res3_3_branch2c_bn_s5k13_resize,
+    res4_5_branch2c_bn_s3k8_resize,
+    res5_2_branch2c_bn_s1k6_resize]
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  GLOBAL_RESIZE_VALUE: 224
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: [color_normalization]
+  EVALUATION_FREQUENCY: 5005
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 256

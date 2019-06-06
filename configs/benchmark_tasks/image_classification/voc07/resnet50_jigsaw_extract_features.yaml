@@ -1,0 +1,38 @@
+DATASET: voc2007
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 20
+  MODEL_NAME: resnet_jigsaw_finetune_linear
+  DEPTH: 50
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [
+    res_conv1_bn_s0_resize,
+    res2_2_branch2c_bn_s0_s8k16_resize,
+    res3_3_branch2c_bn_s0_s5k13_resize,
+    res4_5_branch2c_bn_s0_s3k8_resize,
+    res5_2_branch2c_bn_s0_s1k6_resize]
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  SCALE: 256
+  CROP_SIZE: 224
+  GLOBAL_RESIZE_VALUE: 224
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: [color_normalization]
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 256
+  CROP_SIZE: 224
+  # Best models below
+  # ResNet50 Jigsaw IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_in1k_pretext.pkl
+  # ResNet50 Jigsaw IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_in22k_pretext.pkl
+  # ResNet50 Jigsaw YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/resnet50_jigsaw_yfcc100m_pretext.pkl
+  # Best models for Surface Normals, Detection and the Gibson tasks are
+  # different: 288 [in1k], distr 12 [in22k], 295 [yfcc100m]

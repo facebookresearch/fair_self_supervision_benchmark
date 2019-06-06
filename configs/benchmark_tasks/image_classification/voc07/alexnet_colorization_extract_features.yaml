@@ -1,0 +1,34 @@
+DATASET: voc2007
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 5
+COLORIZATION:
+  COLOR_ON: True
+MODEL:
+  NUM_CLASSES: 20
+  MODEL_NAME: alexnet_colorize_finetune_linear
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [
+    conv1norm_s4k19_resize,
+    conv2norm_s3k12_resize,
+    conv3norm_s1k9_resize,
+    conv4norm_s1k9_resize,
+    conv5norm_s1k8_resize]
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  SCALE: 256
+  CROP_SIZE: 227
+  GLOBAL_RESIZE_VALUE: 227
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: []
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  BATCH_SIZE: 256
+  CROP_SIZE: 227
+  # AlexNet Colorization IN1K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_in1k_pretext.pkl
+  # AlexNet Colorization YFCC100M pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_yfcc100m_pretext.pkl
+  # AlexNet Colorization IN22K pretext - best
+  PARAMS_FILE: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/alexnet_colorization_in22k_pretext.pkl

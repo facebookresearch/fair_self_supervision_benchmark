@@ -1,0 +1,3 @@
+[submodule "third-party/semantic-segmentation-pytorch"]
+	path = third-party/semantic-segmentation-pytorch
+	url = https://github.com/imisra/semantic-segmentation-pytorch.git
