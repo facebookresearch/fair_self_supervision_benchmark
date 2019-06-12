@@ -20,6 +20,8 @@ The goal of fair_self_supervision_benchmark is to standardize the methodology fo
 - Object Detection on [VOC07](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf) and [VOC07+12](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf) with frozen backbone for detectors:
   - [Fast R-CNN](https://arxiv.org/abs/1504.08083)
   - [Faster R-CNN](https://arxiv.org/abs/1506.01497)
+- [Surface Normal Estimation](https://web.eecs.umich.edu/~fouhey/2013/3dp/index.html)
+- Visual Navigation in [Gibson](https://arxiv.org/abs/1808.10654) Environment
 
 <p align="center">
   <img src="demo/img-cls.png" alt="Image Classification" title="Image Classification" width="200" />
@@ -46,7 +48,7 @@ These Benchmark tasks use the network architectures:
 
 fair_self_supervision_benchmark is CC-NC 4.0 International licensed, as found in the LICENSE file.
 
-## Citing fair_self_supervision_benchmark
+## Citation
 
 If you use fair_self_supervision_benchmark in your research or wish to refer to the baseline results published in the [paper](https://arxiv.org/abs/1905.01235), please use the following BibTeX entry.
 
@@ -69,8 +71,8 @@ After installation, please see [`GETTING_STARTED.md`](GETTING_STARTED.md) for ho
 
 ## Model Zoo
 
-We provide models used in our [paper](https://arxiv.org/abs/1905.01235) in the [`Model Zoo`](MODEL_ZOO.md).
+We provide models used in our [paper](https://arxiv.org/abs/1905.01235) in the [`MODEL_ZOO`](MODEL_ZOO.md).
 
 ## References
 
-- [Scaling and Benchmarking Self-Supervised Visual Representation Learning](https://arxiv.org/abs/1905.01235). Priya Goyal, Dhruv Mahajan, Abhinav Gupta, Ishan Misra. Tech report, arXiv, May 2019.
+- [Scaling and Benchmarking Self-Supervised Visual Representation Learning](https://arxiv.org/abs/1905.01235). Priya Goyal, Dhruv Mahajan, Abhinav Gupta*, Ishan Misra*. Tech report, arXiv, May 2019.
