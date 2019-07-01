@@ -1,7 +1,7 @@
 # FAIR Self-Supervision Benchmark
 
 This code provides various benchmark (and legacy) tasks for evaluating quality
-of visual representations learned by various self-supervision approaches. This code corresponds to our work on [Scaling and Benchmarking Self-Supervised Visual Representation Learning](https://arxiv.org/abs/1905.01235). The code is written in Python and can be used to evaluate both PyTorch and Caffe2 models (see [this](https://github.com/facebookresearch/fair_self_supervision_benchmark/tree/master/extra_scripts#using-pytorch-models)). We hope that this
+of visual representations learned by various self-supervision approaches. This code corresponds to our work on [Scaling and Benchmarking Self-Supervised Visual Representation Learning](https://arxiv.org/abs/1905.01235). The code is written in Python and can be used to **evaluate both PyTorch and Caffe2 models** (see [this](https://github.com/facebookresearch/fair_self_supervision_benchmark/tree/master/extra_scripts#using-pytorch-models)). We hope that this
 benchmark release will provided a consistent evaluation strategy that will allow
 measuring the progress in self-supervision easily.
 
