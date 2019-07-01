@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009860.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>219945864</flickrid>
+	</source>
+	<owner>
+		<flickrid>geomai</flickrid>
+		<name>geo mai</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>396</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>train</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>65</xmin>
+			<ymin>25</ymin>
+			<xmax>490</xmax>
+			<ymax>355</ymax>
+		</bndbox>
+	</object>
+</annotation>

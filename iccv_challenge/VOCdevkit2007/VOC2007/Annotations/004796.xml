@@ -1,0 +1,56 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004796.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>325611469</flickrid>
+	</source>
+	<owner>
+		<flickrid>lfchavier</flickrid>
+		<name>Lu?s Fernando Chavier</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>motorbike</name>
+		<pose>Rear</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>316</xmin>
+			<ymin>111</ymin>
+			<xmax>491</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>motorbike</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>57</xmin>
+			<ymin>117</ymin>
+			<xmax>267</xmax>
+			<ymax>270</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>89</xmin>
+			<ymin>85</ymin>
+			<xmax>153</xmax>
+			<ymax>280</ymax>
+		</bndbox>
+	</object>
+</annotation>

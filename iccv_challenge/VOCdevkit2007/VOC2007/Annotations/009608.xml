@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009608.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338873289</flickrid>
+	</source>
+	<owner>
+		<flickrid>farflungphotos</flickrid>
+		<name>Tarnya Hall</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>333</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>160</xmin>
+			<ymin>73</ymin>
+			<xmax>277</xmax>
+			<ymax>221</ymax>
+		</bndbox>
+	</object>
+</annotation>

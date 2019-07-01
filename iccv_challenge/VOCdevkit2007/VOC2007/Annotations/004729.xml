@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004729.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>291445038</flickrid>
+	</source>
+	<owner>
+		<flickrid>endlesstrail</flickrid>
+		<name>Kenny Chong</name>
+	</owner>
+	<size>
+		<width>400</width>
+		<height>380</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>motorbike</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>9</xmin>
+			<ymin>62</ymin>
+			<xmax>382</xmax>
+			<ymax>329</ymax>
+		</bndbox>
+	</object>
+</annotation>

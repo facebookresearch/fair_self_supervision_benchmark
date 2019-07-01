@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008338.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>333543384</flickrid>
+	</source>
+	<owner>
+		<flickrid>funkandjazz</flickrid>
+		<name>phunk</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>168</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bus</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>26</xmin>
+			<ymin>5</ymin>
+			<xmax>486</xmax>
+			<ymax>140</ymax>
+		</bndbox>
+	</object>
+</annotation>

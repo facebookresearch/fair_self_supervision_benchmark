@@ -1,0 +1,62 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009374.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>339828413</flickrid>
+	</source>
+	<owner>
+		<flickrid>Marc V. Genre</flickrid>
+		<name>Marc Genre</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>334</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chair</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>71</xmin>
+			<ymin>94</ymin>
+			<xmax>461</xmax>
+			<ymax>334</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>58</xmin>
+			<ymin>64</ymin>
+			<xmax>334</xmax>
+			<ymax>334</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>145.8629</xmin>
+				<ymin>63.871</ymin>
+				<xmax>212.3952</xmax>
+				<ymax>167.0968</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>124.4919</xmin>
+				<ymin>230.8065</ymin>
+				<xmax>176.5081</xmax>
+				<ymax>269.1129</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

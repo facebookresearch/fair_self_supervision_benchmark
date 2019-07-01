@@ -1,0 +1,68 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009738.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>342480455</flickrid>
+	</source>
+	<owner>
+		<flickrid>Jon Irvine</flickrid>
+		<name>Jon Irvine</name>
+	</owner>
+	<size>
+		<width>375</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>187</xmin>
+			<ymin>255</ymin>
+			<xmax>311</xmax>
+			<ymax>474</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>219.7241</xmin>
+				<ymin>255.3276</ymin>
+				<xmax>247.3103</xmax>
+				<ymax>287.0517</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>190.7586</xmin>
+				<ymin>325.6724</ymin>
+				<xmax>205.2414</xmax>
+				<ymax>343.6034</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>296.9655</xmin>
+				<ymin>401.5345</ymin>
+				<xmax>304.5517</xmax>
+				<ymax>433.2586</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>237.6552</xmin>
+				<ymin>458.7759</ymin>
+				<xmax>256.9655</xmax>
+				<ymax>468.431</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

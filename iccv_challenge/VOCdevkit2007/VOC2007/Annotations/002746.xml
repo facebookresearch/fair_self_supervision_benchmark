@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>002746.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>256517233</flickrid>
+	</source>
+	<owner>
+		<flickrid>starkeyd664</flickrid>
+		<name>?</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>200</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>179</xmin>
+			<ymin>99</ymin>
+			<xmax>204</xmax>
+			<ymax>124</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>car</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>14</xmin>
+			<ymin>91</ymin>
+			<xmax>358</xmax>
+			<ymax>174</ymax>
+		</bndbox>
+	</object>
+</annotation>

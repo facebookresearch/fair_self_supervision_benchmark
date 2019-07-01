@@ -1,0 +1,77 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>003226.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>331123539</flickrid>
+	</source>
+	<owner>
+		<flickrid>Bunny Beats!</flickrid>
+		<name>Hector Zarate</name>
+	</owner>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>71</xmin>
+			<ymin>43</ymin>
+			<xmax>286</xmax>
+			<ymax>485</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>114.0885</xmin>
+				<ymin>42.7732</ymin>
+				<xmax>196.9552</xmax>
+				<ymax>137.958</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>175.1187</xmin>
+				<ymin>202.9076</ymin>
+				<xmax>209.2732</xmax>
+				<ymax>242.1013</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>138.1646</xmin>
+				<ymin>241.5414</ymin>
+				<xmax>192.4759</xmax>
+				<ymax>289.6937</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>70.9754</xmin>
+				<ymin>445.3488</ymin>
+				<xmax>130.8858</xmax>
+				<ymax>488.4619</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>226.0705</xmin>
+				<ymin>438.6299</ymin>
+				<xmax>277.5823</xmax>
+				<ymax>485.6624</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000403.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>324741107</flickrid>
+	</source>
+	<owner>
+		<flickrid>Amy Lloyd</flickrid>
+		<name>Amy Lloyd</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>157</xmin>
+			<ymin>90</ymin>
+			<xmax>486</xmax>
+			<ymax>372</ymax>
+		</bndbox>
+	</object>
+</annotation>

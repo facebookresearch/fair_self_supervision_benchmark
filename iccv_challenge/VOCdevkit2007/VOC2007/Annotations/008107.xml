@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008107.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>295862056</flickrid>
+	</source>
+	<owner>
+		<flickrid>Kevin Boydston</flickrid>
+		<name>Kevin Boydston</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>333</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>aeroplane</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>10</xmin>
+			<ymin>57</ymin>
+			<xmax>494</xmax>
+			<ymax>232</ymax>
+		</bndbox>
+	</object>
+</annotation>

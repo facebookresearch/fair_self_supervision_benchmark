@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008085.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337901354</flickrid>
+	</source>
+	<owner>
+		<flickrid>crawfishcity</flickrid>
+		<name>David Spira</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>282</height>
+		<depth>3</depth>
+	</size>
+	<segmented>1</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>54</xmin>
+			<ymin>173</ymin>
+			<xmax>100</xmax>
+			<ymax>219</ymax>
+		</bndbox>
+	</object>
+</annotation>

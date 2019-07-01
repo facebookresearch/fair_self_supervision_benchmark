@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004705.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>262714130</flickrid>
+	</source>
+	<owner>
+		<flickrid>tramwayjohn</flickrid>
+		<name>John Coyle</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>330</height>
+		<depth>3</depth>
+	</size>
+	<segmented>1</segmented>
+	<object>
+		<name>bus</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>394</xmin>
+			<ymin>181</ymin>
+			<xmax>455</xmax>
+			<ymax>226</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>car</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>206</ymin>
+			<xmax>104</xmax>
+			<ymax>270</ymax>
+		</bndbox>
+	</object>
+</annotation>

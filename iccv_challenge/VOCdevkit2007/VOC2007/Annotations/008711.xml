@@ -1,0 +1,68 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008711.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>292847480</flickrid>
+	</source>
+	<owner>
+		<flickrid>Chris Woolman (MINIR53)</flickrid>
+		<name>Chris Woolman</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>334</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>car</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>21</xmin>
+			<ymin>77</ymin>
+			<xmax>446</xmax>
+			<ymax>317</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>car</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>210</xmin>
+			<ymin>8</ymin>
+			<xmax>500</xmax>
+			<ymax>166</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>234</xmin>
+			<ymin>141</ymin>
+			<xmax>277</xmax>
+			<ymax>182</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>351</xmin>
+			<ymin>40</ymin>
+			<xmax>383</xmax>
+			<ymax>69</ymax>
+		</bndbox>
+	</object>
+</annotation>

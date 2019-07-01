@@ -1,0 +1,68 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004831.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>329556115</flickrid>
+	</source>
+	<owner>
+		<flickrid>Jenya Campbell</flickrid>
+		<name>Jenya Campbell</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>333</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>111</xmin>
+			<ymin>29</ymin>
+			<xmax>361</xmax>
+			<ymax>318</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>230.5403</xmin>
+				<ymin>25.4677</ymin>
+				<xmax>353.5242</xmax>
+				<ymax>170.2258</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>157.5565</xmin>
+				<ymin>145.2258</ymin>
+				<xmax>206.75</xmax>
+				<ymax>202.0806</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>109.9758</xmin>
+				<ymin>169.4194</ymin>
+				<xmax>148.6855</xmax>
+				<ymax>211.3548</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>110.7823</xmin>
+				<ymin>272.2419</ymin>
+				<xmax>157.9597</xmax>
+				<ymax>315.3871</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

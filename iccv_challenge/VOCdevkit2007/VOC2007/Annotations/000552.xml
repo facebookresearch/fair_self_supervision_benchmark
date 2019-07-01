@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000552.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>311142690</flickrid>
+	</source>
+	<owner>
+		<flickrid>flicker_boone</flickrid>
+		<name>Nate Boone</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>331</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>aeroplane</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>4</xmin>
+			<ymin>122</ymin>
+			<xmax>498</xmax>
+			<ymax>258</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>aeroplane</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>98</xmin>
+			<ymin>75</ymin>
+			<xmax>426</xmax>
+			<ymax>167</ymax>
+		</bndbox>
+	</object>
+</annotation>

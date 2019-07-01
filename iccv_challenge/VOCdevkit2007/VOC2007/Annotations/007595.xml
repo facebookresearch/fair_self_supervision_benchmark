@@ -1,0 +1,50 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007595.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>342047733</flickrid>
+	</source>
+	<owner>
+		<flickrid>endbradley</flickrid>
+		<name>Dereck Bradley</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>333</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>117</xmin>
+			<ymin>37</ymin>
+			<xmax>370</xmax>
+			<ymax>333</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>158.3629</xmin>
+				<ymin>31.5161</ymin>
+				<xmax>292.6371</xmax>
+				<ymax>223.4516</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>225.2984</xmin>
+				<ymin>206.5161</ymin>
+				<xmax>270.8629</xmax>
+				<ymax>297.2419</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

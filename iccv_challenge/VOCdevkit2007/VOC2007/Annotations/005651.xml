@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005651.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>272128080</flickrid>
+	</source>
+	<owner>
+		<flickrid>janinetreetops</flickrid>
+		<name>Janine</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>367</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>231</xmin>
+			<ymin>82</ymin>
+			<xmax>382</xmax>
+			<ymax>275</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006751.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>177027512</flickrid>
+	</source>
+	<owner>
+		<flickrid>aurorascopic</flickrid>
+		<name>F.A.B</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>317</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>247</xmin>
+			<ymin>109</ymin>
+			<xmax>454</xmax>
+			<ymax>283</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>bird</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>91</xmin>
+			<ymin>39</ymin>
+			<xmax>241</xmax>
+			<ymax>144</ymax>
+		</bndbox>
+	</object>
+</annotation>

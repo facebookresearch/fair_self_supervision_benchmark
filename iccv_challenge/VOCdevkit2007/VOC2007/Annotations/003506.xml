@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>003506.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>254487117</flickrid>
+	</source>
+	<owner>
+		<flickrid>Bird in the Hand</flickrid>
+		<name>Lisa Congdon</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>332</height>
+		<depth>3</depth>
+	</size>
+	<segmented>1</segmented>
+	<object>
+		<name>pottedplant</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>63</xmin>
+			<ymin>42</ymin>
+			<xmax>261</xmax>
+			<ymax>287</ymax>
+		</bndbox>
+	</object>
+</annotation>

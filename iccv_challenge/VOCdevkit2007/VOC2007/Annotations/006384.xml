@@ -1,0 +1,71 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006384.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>275993650</flickrid>
+	</source>
+	<owner>
+		<flickrid>Kaptain Kobold</flickrid>
+		<name>Alan Saunders</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>419</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tvmonitor</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>340</xmin>
+			<ymin>4</ymin>
+			<xmax>500</xmax>
+			<ymax>148</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>36</xmin>
+			<ymin>81</ymin>
+			<xmax>338</xmax>
+			<ymax>418</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>99.6506</xmin>
+				<ymin>82.3763</ymin>
+				<xmax>165.3393</xmax>
+				<ymax>186.5398</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>310.7928</xmin>
+				<ymin>225.4838</ymin>
+				<xmax>357.7133</xmax>
+				<ymax>276.1579</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>50.8533</xmin>
+				<ymin>142.4345</ymin>
+				<xmax>101.9966</xmax>
+				<ymax>210.4692</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

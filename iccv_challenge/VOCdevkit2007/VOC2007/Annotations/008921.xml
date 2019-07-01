@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008921.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>335599174</flickrid>
+	</source>
+	<owner>
+		<flickrid>shoelaces&amp;stereos</flickrid>
+		<name>Mike Saffert</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>400</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>128</xmin>
+			<ymin>2</ymin>
+			<xmax>339</xmax>
+			<ymax>400</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>211.3063</xmin>
+				<ymin>1</ymin>
+				<xmax>288.7979</xmax>
+				<ymax>82.6948</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>176.8158</xmin>
+				<ymin>222.8964</ymin>
+				<xmax>219.8169</xmax>
+				<ymax>274.4082</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>288.7979</xmin>
+				<ymin>209.9065</ymin>
+				<xmax>342.1013</xmax>
+				<ymax>255.1473</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009466.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>218931933</flickrid>
+	</source>
+	<owner>
+		<flickrid>The Demented Diva</flickrid>
+		<name>Bethany</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>450</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chair</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>157</xmin>
+			<ymin>220</ymin>
+			<xmax>398</xmax>
+			<ymax>436</ymax>
+		</bndbox>
+	</object>
+</annotation>

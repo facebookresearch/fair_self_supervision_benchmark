@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005378.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>328164695</flickrid>
+	</source>
+	<owner>
+		<flickrid>kkeith1232003</flickrid>
+		<name>Katie Keith</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>374</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chair</name>
+		<pose>Rear</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>3</xmin>
+			<ymin>186</ymin>
+			<xmax>87</xmax>
+			<ymax>289</ymax>
+		</bndbox>
+	</object>
+</annotation>

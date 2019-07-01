@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008732.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337167092</flickrid>
+	</source>
+	<owner>
+		<flickrid>AnoopAA</flickrid>
+		<name>Anoop Anand A</name>
+	</owner>
+	<size>
+		<width>371</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>101</xmin>
+			<ymin>197</ymin>
+			<xmax>223</xmax>
+			<ymax>395</ymax>
+		</bndbox>
+	</object>
+</annotation>

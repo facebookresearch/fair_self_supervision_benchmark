@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000167.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>330615019</flickrid>
+	</source>
+	<owner>
+		<flickrid>Todd Bates</flickrid>
+		<name>Todd  Bates</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>374</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>27</xmin>
+			<ymin>18</ymin>
+			<xmax>478</xmax>
+			<ymax>374</ymax>
+		</bndbox>
+	</object>
+</annotation>

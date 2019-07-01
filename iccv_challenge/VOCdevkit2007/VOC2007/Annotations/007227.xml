@@ -1,0 +1,71 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007227.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338830035</flickrid>
+	</source>
+	<owner>
+		<flickrid>Vicious Bits</flickrid>
+		<name>Vic Bit</name>
+	</owner>
+	<size>
+		<width>296</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>sofa</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>2</xmin>
+			<ymin>74</ymin>
+			<xmax>295</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>5</xmin>
+			<ymin>36</ymin>
+			<xmax>268</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>113.5056</xmin>
+				<ymin>38.294</ymin>
+				<xmax>194.6926</xmax>
+				<ymax>142.4373</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>209.2503</xmin>
+				<ymin>198.4283</ymin>
+				<xmax>255.1629</xmax>
+				<ymax>249.3802</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>45.7564</xmin>
+				<ymin>134.0386</ymin>
+				<xmax>117.425</xmax>
+				<ymax>183.8707</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

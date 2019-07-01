@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006227.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>301326638</flickrid>
+	</source>
+	<owner>
+		<flickrid>iglet2</flickrid>
+		<name>?</name>
+	</owner>
+	<size>
+		<width>337</width>
+		<height>139</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Right</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>91</xmin>
+			<ymin>61</ymin>
+			<xmax>248</xmax>
+			<ymax>139</ymax>
+		</bndbox>
+	</object>
+</annotation>

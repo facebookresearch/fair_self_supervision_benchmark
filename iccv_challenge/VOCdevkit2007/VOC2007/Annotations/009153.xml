@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009153.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337684959</flickrid>
+	</source>
+	<owner>
+		<flickrid>bigkgbguy</flickrid>
+		<name>Andrey Zakharenko</name>
+	</owner>
+	<size>
+		<width>375</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>3</xmin>
+			<ymin>107</ymin>
+			<xmax>375</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>147.4065</xmin>
+				<ymin>108.8427</ymin>
+				<xmax>247.0705</xmax>
+				<ymax>256.659</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>60.6204</xmin>
+				<ymin>234.8225</ymin>
+				<xmax>145.7268</xmax>
+				<ymax>314.3298</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>353.4535</xmin>
+				<ymin>436.3903</ymin>
+				<xmax>375</xmax>
+				<ymax>485.6624</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

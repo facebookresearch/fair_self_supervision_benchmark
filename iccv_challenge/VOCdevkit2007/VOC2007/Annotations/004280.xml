@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004280.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>288055560</flickrid>
+	</source>
+	<owner>
+		<flickrid>kanuck</flickrid>
+		<name>ken tam</name>
+	</owner>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>182</xmin>
+			<ymin>183</ymin>
+			<xmax>297</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+</annotation>

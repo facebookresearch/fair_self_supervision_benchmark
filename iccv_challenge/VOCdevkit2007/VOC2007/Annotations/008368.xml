@@ -1,0 +1,71 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008368.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>324147078</flickrid>
+	</source>
+	<owner>
+		<flickrid>Angry Monk</flickrid>
+		<name>Paul Ratliff</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>332</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>sofa</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>99</ymin>
+			<xmax>499</xmax>
+			<ymax>332</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>174</xmin>
+			<ymin>57</ymin>
+			<xmax>433</xmax>
+			<ymax>332</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>259.1694</xmin>
+				<ymin>57.629</ymin>
+				<xmax>314.4113</xmax>
+				<ymax>147.5484</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>221.6694</xmin>
+				<ymin>236.2581</ymin>
+				<xmax>266.0242</xmax>
+				<ymax>284.2419</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>347.4758</xmin>
+				<ymin>230.2097</ymin>
+				<xmax>393.8468</xmax>
+				<ymax>263.6774</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

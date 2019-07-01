@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>001602.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>301393231</flickrid>
+	</source>
+	<owner>
+		<flickrid>pirate johnny</flickrid>
+		<name>John</name>
+	</owner>
+	<size>
+		<width>351</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>1</segmented>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>252</xmin>
+			<ymin>2</ymin>
+			<xmax>351</xmax>
+			<ymax>365</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>112</xmin>
+			<ymin>3</ymin>
+			<xmax>225</xmax>
+			<ymax>203</ymax>
+		</bndbox>
+	</object>
+</annotation>

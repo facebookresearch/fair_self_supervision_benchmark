@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008305.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338869661</flickrid>
+	</source>
+	<owner>
+		<flickrid>you can count on me</flickrid>
+		<name>Jeannette Ordas</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>406</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>140</xmin>
+			<ymin>95</ymin>
+			<xmax>439</xmax>
+			<ymax>245</ymax>
+		</bndbox>
+	</object>
+</annotation>

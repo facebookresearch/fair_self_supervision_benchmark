@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005359.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>248769848</flickrid>
+	</source>
+	<owner>
+		<flickrid>?JDAWG?</flickrid>
+		<name>joe</name>
+	</owner>
+	<size>
+		<width>370</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>train</name>
+		<pose>Right</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>66</ymin>
+			<xmax>343</xmax>
+			<ymax>415</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>128</xmin>
+			<ymin>140</ymin>
+			<xmax>162</xmax>
+			<ymax>189</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009120.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>309562018</flickrid>
+	</source>
+	<owner>
+		<flickrid>SheepGuardingLlama</flickrid>
+		<name>Scott Miller</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>242</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>boat</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>274</xmin>
+			<ymin>132</ymin>
+			<xmax>348</xmax>
+			<ymax>151</ymax>
+		</bndbox>
+	</object>
+</annotation>

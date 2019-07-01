@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006154.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>316618454</flickrid>
+	</source>
+	<owner>
+		<flickrid>catchesthelight</flickrid>
+		<name>Bev N</name>
+	</owner>
+	<size>
+		<width>400</width>
+		<height>445</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>train</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>57</ymin>
+			<xmax>351</xmax>
+			<ymax>415</ymax>
+		</bndbox>
+	</object>
+</annotation>

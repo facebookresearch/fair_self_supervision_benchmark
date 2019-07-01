@@ -1,0 +1,71 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004412.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>246582190</flickrid>
+	</source>
+	<owner>
+		<flickrid>Velo Steve</flickrid>
+		<name>Steve Ryan</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>293</xmin>
+				<ymin>96</ymin>
+				<xmax>398</xmax>
+				<ymax>223</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>410</xmin>
+				<ymin>293</ymin>
+				<xmax>464</xmax>
+				<ymax>325</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>395</xmin>
+				<ymin>306</ymin>
+				<xmax>436</xmax>
+				<ymax>343</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>75</xmin>
+			<ymin>88</ymin>
+			<xmax>466</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>bicycle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>195</xmin>
+			<ymin>302</ymin>
+			<xmax>483</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+</annotation>

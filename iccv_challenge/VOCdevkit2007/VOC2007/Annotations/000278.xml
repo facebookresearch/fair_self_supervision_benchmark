@@ -1,0 +1,62 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000278.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338888008</flickrid>
+	</source>
+	<owner>
+		<flickrid>ilovethatsound</flickrid>
+		<name>anne behrndt</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>294</xmin>
+			<ymin>156</ymin>
+			<xmax>500</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>111</xmin>
+			<ymin>89</ymin>
+			<xmax>417</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>241</xmin>
+				<ymin>95</ymin>
+				<xmax>331</xmax>
+				<ymax>194</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>113</xmin>
+				<ymin>124</ymin>
+				<xmax>176</xmax>
+				<ymax>202</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

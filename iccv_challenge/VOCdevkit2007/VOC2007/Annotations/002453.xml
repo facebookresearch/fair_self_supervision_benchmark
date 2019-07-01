@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>002453.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>299283492</flickrid>
+	</source>
+	<owner>
+		<flickrid>Kimberly Jennery</flickrid>
+		<name>Kimberly Jennery</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>209</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cat</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>17</xmin>
+			<ymin>22</ymin>
+			<xmax>252</xmax>
+			<ymax>207</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cat</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>262</xmin>
+			<ymin>34</ymin>
+			<xmax>486</xmax>
+			<ymax>193</ymax>
+		</bndbox>
+	</object>
+</annotation>

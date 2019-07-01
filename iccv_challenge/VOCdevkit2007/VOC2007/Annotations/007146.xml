@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007146.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>113201137</flickrid>
+	</source>
+	<owner>
+		<flickrid>xeer</flickrid>
+		<name>Donncha O Caoimh</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>374</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>124</xmin>
+			<ymin>43</ymin>
+			<xmax>462</xmax>
+			<ymax>367</ymax>
+		</bndbox>
+	</object>
+</annotation>

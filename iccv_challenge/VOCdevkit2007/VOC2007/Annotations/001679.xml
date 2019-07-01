@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>001679.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>243456640</flickrid>
+	</source>
+	<owner>
+		<flickrid>SC Fiasco</flickrid>
+		<name>Ed Nunya</name>
+	</owner>
+	<size>
+		<width>393</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>motorbike</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2</xmin>
+			<ymin>235</ymin>
+			<xmax>391</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+</annotation>

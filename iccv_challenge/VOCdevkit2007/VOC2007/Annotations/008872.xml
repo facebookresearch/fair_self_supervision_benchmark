@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008872.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>339925994</flickrid>
+	</source>
+	<owner>
+		<flickrid>jillhudgins</flickrid>
+		<name>Jill Hudgins</name>
+	</owner>
+	<size>
+		<width>360</width>
+		<height>270</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>130</xmin>
+			<ymin>126</ymin>
+			<xmax>244</xmax>
+			<ymax>270</ymax>
+		</bndbox>
+	</object>
+</annotation>

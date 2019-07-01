@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008321.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338863813</flickrid>
+	</source>
+	<owner>
+		<flickrid>leila-anne</flickrid>
+		<name>Leila-Anne Brusseau</name>
+	</owner>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2</xmin>
+			<ymin>28</ymin>
+			<xmax>326</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>101.2105</xmin>
+				<ymin>25.416</ymin>
+				<xmax>209.2732</xmax>
+				<ymax>167.6333</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>264.7044</xmin>
+				<ymin>247.7004</ymin>
+				<xmax>325.7346</xmax>
+				<ymax>337.2861</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>1</xmin>
+				<ymin>356.3231</ymin>
+				<xmax>69.2956</xmax>
+				<ymax>437.5101</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

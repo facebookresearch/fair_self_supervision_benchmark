@@ -1,0 +1,71 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009024.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>323842071</flickrid>
+	</source>
+	<owner>
+		<flickrid>Lothar Lenz</flickrid>
+		<name>Lothar Lenz</name>
+	</owner>
+	<size>
+		<width>332</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>197</xmin>
+				<ymin>141</ymin>
+				<xmax>226</xmax>
+				<ymax>176</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>215</xmin>
+				<ymin>202</ymin>
+				<xmax>230</xmax>
+				<ymax>214</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>260</xmin>
+				<ymin>291</ymin>
+				<xmax>278</xmax>
+				<ymax>308</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>197</xmin>
+			<ymin>140</ymin>
+			<xmax>278</xmax>
+			<ymax>310</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>horse</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>163</xmin>
+			<ymin>172</ymin>
+			<xmax>288</xmax>
+			<ymax>360</ymax>
+		</bndbox>
+	</object>
+</annotation>

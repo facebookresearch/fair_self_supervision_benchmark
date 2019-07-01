@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008388.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>121739310</flickrid>
+	</source>
+	<owner>
+		<flickrid>Sublime Angel</flickrid>
+		<name>Amber Marie Manton</name>
+	</owner>
+	<size>
+		<width>450</width>
+		<height>338</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>car</name>
+		<pose>Rear</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>1</ymin>
+			<xmax>450</xmax>
+			<ymax>337</ymax>
+		</bndbox>
+	</object>
+</annotation>

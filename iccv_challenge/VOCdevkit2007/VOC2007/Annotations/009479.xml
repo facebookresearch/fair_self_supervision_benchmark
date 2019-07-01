@@ -1,0 +1,74 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009479.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>284428391</flickrid>
+	</source>
+	<owner>
+		<flickrid>Steve Brandon</flickrid>
+		<name>Steve Brandon</name>
+	</owner>
+	<size>
+		<width>375</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>sofa</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2</xmin>
+			<ymin>278</ymin>
+			<xmax>357</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cat</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>145</xmin>
+			<ymin>261</ymin>
+			<xmax>293</xmax>
+			<ymax>327</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>3</xmin>
+			<ymin>291</ymin>
+			<xmax>104</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>16.3875</xmin>
+				<ymin>293.0532</ymin>
+				<xmax>79.6573</xmax>
+				<ymax>367.5213</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>58.9406</xmin>
+				<ymin>462.1461</ymin>
+				<xmax>99.2542</xmax>
+				<ymax>500</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

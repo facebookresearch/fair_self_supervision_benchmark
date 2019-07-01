@@ -1,0 +1,62 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>002982.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>55211162</flickrid>
+	</source>
+	<owner>
+		<flickrid>hb1987</flickrid>
+		<name>Harry Bullivant</name>
+	</owner>
+	<size>
+		<width>356</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>272</xmin>
+			<ymin>278</ymin>
+			<xmax>353</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>14</xmin>
+			<ymin>21</ymin>
+			<xmax>299</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>132</xmin>
+				<ymin>24</ymin>
+				<xmax>280</xmax>
+				<ymax>217</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>136</xmin>
+				<ymin>188</ymin>
+				<xmax>231</xmax>
+				<ymax>286</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>001286.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>292623457</flickrid>
+	</source>
+	<owner>
+		<flickrid>quite peculiar</flickrid>
+		<name>doreen</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>331</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>motorbike</name>
+		<pose>Right</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>32</xmin>
+			<ymin>124</ymin>
+			<xmax>489</xmax>
+			<ymax>331</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005337.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>333764916</flickrid>
+	</source>
+	<owner>
+		<flickrid>eziomanuel</flickrid>
+		<name>Manuel</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>223</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>boat</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>284</xmin>
+			<ymin>99</ymin>
+			<xmax>357</xmax>
+			<ymax>130</ymax>
+		</bndbox>
+	</object>
+</annotation>

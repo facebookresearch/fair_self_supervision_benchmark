@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007980.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337009858</flickrid>
+	</source>
+	<owner>
+		<flickrid>Vlad Butsky</flickrid>
+		<name>Vlad Butsky</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>329</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>boat</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>187</xmin>
+			<ymin>43</ymin>
+			<xmax>298</xmax>
+			<ymax>220</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>boat</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>323</xmin>
+			<ymin>193</ymin>
+			<xmax>384</xmax>
+			<ymax>218</ymax>
+		</bndbox>
+	</object>
+</annotation>
