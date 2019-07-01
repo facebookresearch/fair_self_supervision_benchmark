@@ -134,6 +134,27 @@ python extra_scripts/pickle_caffe2_detection.py \
     --absorb_std
 ```
 
+## Using PyTorch models
+
+If you have a PyTorch model that you want to use benchmark suite on, you can easily/quickly convert your model to Caffe2 using the below command and run any benchmark task afterwards.
+
+0. Jigsaw model
+
+```bash
+python extra_scripts/pickle_pytorch_to_caffe2.py \
+    --pth_model </path/to/model.pth> \
+    --output_model /tmp/ssl-benchmark-output/c2_jigsaw_model.pkl \
+    --jigsaw True
+```
+
+0. Colorization and Supervised model
+
+```bash
+python extra_scripts/pickle_pytorch_to_caffe2.py \
+    --c2_model </path/to/model.pth> \
+    --output_model /tmp/ssl-benchmark-output/c2_model.pkl
+```
+
 ## Converting model to PyTorch 1.0
 
 If you are interested in converting the Caffe2 model to a PyTorch compatible model,
