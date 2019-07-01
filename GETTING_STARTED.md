@@ -94,6 +94,7 @@ python tools/train_net.py \
 First, install the [Detectron](https://github.com/facebookresearch/Detectron) following the detectron Install commands [here](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md). We freeze the backbone of the model using `FREEZE_AT=4` and use a slightly longer training schedule for both supervised and self-supervised baselines. All other hyperparameters are same as the Detectron settings. The configuration files for Fast R-CNN and Faster R-CNN on VOC2007 and VOC07+12 datasets are provided in `configs/benchmark_tasks/object_detection_frozen/`. We also provide the model weights converted to be compatible with Detectron blob names and input (see [this](extra_scripts/README.md). You can use model you want to use from the config file and download the model to local disk and use the command below for training.
 
 ```bash
+# NOTE: this train_net.py is the Detectron codebase train_net.py
 python tools/train_net.py \
     --multi-gpu-testing \
     --cfg configs/benchmark_tasks/object_detection_frozen/voc07/e2e_faster_rcnn_R-50-C4_trainval-50-FPN.yaml \
