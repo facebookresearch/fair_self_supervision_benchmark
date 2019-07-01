@@ -1,0 +1,62 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009659.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>320014548</flickrid>
+	</source>
+	<owner>
+		<flickrid>The J. Myers family</flickrid>
+		<name>?</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chair</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>243</xmin>
+			<ymin>4</ymin>
+			<xmax>500</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>81</xmin>
+			<ymin>11</ymin>
+			<xmax>371</xmax>
+			<ymax>370</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>229.3306</xmin>
+				<ymin>12.2608</ymin>
+				<xmax>366.4274</xmax>
+				<ymax>140.621</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>80.1371</xmin>
+				<ymin>90.2177</ymin>
+				<xmax>137.2608</xmax>
+				<ymax>136.5887</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

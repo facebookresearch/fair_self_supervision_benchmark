@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>008299.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>316528737</flickrid>
+	</source>
+	<owner>
+		<flickrid>nevilzaveri</flickrid>
+		<name>nevil zaveri</name>
+	</owner>
+	<size>
+		<width>304</width>
+		<height>404</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cow</name>
+		<pose>Left</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>113</xmin>
+			<ymin>89</ymin>
+			<xmax>304</xmax>
+			<ymax>401</ymax>
+		</bndbox>
+	</object>
+</annotation>

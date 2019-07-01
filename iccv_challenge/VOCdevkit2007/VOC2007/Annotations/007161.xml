@@ -1,0 +1,50 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007161.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>331209625</flickrid>
+	</source>
+	<owner>
+		<flickrid>Just Sharing</flickrid>
+		<name>Tim Hamilton</name>
+	</owner>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>5</xmin>
+			<ymin>57</ymin>
+			<xmax>332</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>87.2128</xmin>
+				<ymin>55.6512</ymin>
+				<xmax>240.6282</xmax>
+				<ymax>244.341</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>76.0146</xmin>
+				<ymin>278.4955</ymin>
+				<xmax>165.6002</xmax>
+				<ymax>404.4754</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

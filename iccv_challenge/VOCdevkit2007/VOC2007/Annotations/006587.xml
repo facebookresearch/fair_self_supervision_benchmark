@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006587.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337978454</flickrid>
+	</source>
+	<owner>
+		<flickrid>venet_osmani</flickrid>
+		<name>Venet Osmani</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>213</xmin>
+			<ymin>31</ymin>
+			<xmax>288</xmax>
+			<ymax>198</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>234.3326</xmin>
+				<ymin>28.0056</ymin>
+				<xmax>267.9272</xmax>
+				<ymax>77.1377</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>254.0694</xmin>
+				<ymin>146.8466</ymin>
+				<xmax>265.8275</xmax>
+				<ymax>166.5834</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>248.1904</xmin>
+				<ymin>179.6013</ymin>
+				<xmax>264.1478</xmax>
+				<ymax>197.6585</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>003747.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337752769</flickrid>
+	</source>
+	<owner>
+		<flickrid>jkh_22</flickrid>
+		<name>Jenni K. Holder</name>
+	</owner>
+	<size>
+		<width>417</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>150</xmin>
+				<ymin>12</ymin>
+				<xmax>247</xmax>
+				<ymax>123</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>40</xmin>
+				<ymin>151</ymin>
+				<xmax>88</xmax>
+				<ymax>179</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>225</xmin>
+				<ymin>248</ymin>
+				<xmax>251</xmax>
+				<ymax>290</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>40</xmin>
+			<ymin>10</ymin>
+			<xmax>270</xmax>
+			<ymax>316</ymax>
+		</bndbox>
+	</object>
+</annotation>

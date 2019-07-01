@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005450.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>308058132</flickrid>
+	</source>
+	<owner>
+		<flickrid>Heinrich A. Widmer</flickrid>
+		<name>Heinrich A. Widmer</name>
+	</owner>
+	<size>
+		<width>357</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>7</xmin>
+			<ymin>123</ymin>
+			<xmax>342</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>116.57</xmin>
+				<ymin>125.0801</ymin>
+				<xmax>225.1926</xmax>
+				<ymax>275.696</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>179.28</xmin>
+				<ymin>436.3903</ymin>
+				<xmax>264.3863</xmax>
+				<ymax>500</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>107.6114</xmin>
+				<ymin>433.0308</ymin>
+				<xmax>193.8376</xmax>
+				<ymax>495.7408</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

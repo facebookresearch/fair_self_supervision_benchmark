@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007009.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>79998591</flickrid>
+	</source>
+	<owner>
+		<flickrid>m_w_scott</flickrid>
+		<name>Mike Scott</name>
+	</owner>
+	<size>
+		<width>432</width>
+		<height>296</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>motorbike</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>25</xmin>
+			<ymin>1</ymin>
+			<xmax>432</xmax>
+			<ymax>218</ymax>
+		</bndbox>
+	</object>
+</annotation>

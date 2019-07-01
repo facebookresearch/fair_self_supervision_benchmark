@@ -1,0 +1,77 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>001627.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>310973391</flickrid>
+	</source>
+	<owner>
+		<flickrid>Emo Squid</flickrid>
+		<name>Jason Rockey</name>
+	</owner>
+	<size>
+		<width>375</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>177</xmin>
+				<ymin>9</ymin>
+				<xmax>238</xmax>
+				<ymax>89</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>252</xmin>
+				<ymin>236</ymin>
+				<xmax>279</xmax>
+				<ymax>278</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>120</xmin>
+				<ymin>255</ymin>
+				<xmax>154</xmax>
+				<ymax>314</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>185</xmin>
+				<ymin>405</ymin>
+				<xmax>214</xmax>
+				<ymax>440</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>foot</name>
+			<bndbox>
+				<xmin>146</xmin>
+				<ymin>433</ymin>
+				<xmax>173</xmax>
+				<ymax>474</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>104</xmin>
+			<ymin>7</ymin>
+			<xmax>280</xmax>
+			<ymax>475</ymax>
+		</bndbox>
+	</object>
+</annotation>

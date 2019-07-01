@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000813.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>327574222</flickrid>
+	</source>
+	<owner>
+		<flickrid>lette_applejuice</flickrid>
+		<name>Colette McNamara</name>
+	</owner>
+	<size>
+		<width>427</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tvmonitor</name>
+		<pose>Frontal</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>58</xmin>
+			<ymin>55</ymin>
+			<xmax>390</xmax>
+			<ymax>373</ymax>
+		</bndbox>
+	</object>
+</annotation>

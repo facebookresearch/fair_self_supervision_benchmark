@@ -1,0 +1,44 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009714.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338733355</flickrid>
+	</source>
+	<owner>
+		<flickrid>samandrum</flickrid>
+		<name>Sam Roberts</name>
+	</owner>
+	<size>
+		<width>287</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>1</difficult>
+		<bndbox>
+			<xmin>21</xmin>
+			<ymin>408</ymin>
+			<xmax>37</xmax>
+			<ymax>445</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>401</ymin>
+			<xmax>22</xmax>
+			<ymax>450</ymax>
+		</bndbox>
+	</object>
+</annotation>

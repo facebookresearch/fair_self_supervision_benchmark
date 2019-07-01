@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>007420.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>340289501</flickrid>
+	</source>
+	<owner>
+		<flickrid>kvwong</flickrid>
+		<name>Kevin Wong</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>333</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>161</xmin>
+			<ymin>92</ymin>
+			<xmax>387</xmax>
+			<ymax>333</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>256.75</xmin>
+				<ymin>93.2097</ymin>
+				<xmax>311.5887</xmax>
+				<ymax>178.2903</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>347.0726</xmin>
+				<ymin>154.0968</ymin>
+				<xmax>376.5081</xmax>
+				<ymax>177.0806</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>177.7177</xmin>
+				<ymin>96.4355</ymin>
+				<xmax>211.1855</xmax>
+				<ymax>132.3226</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

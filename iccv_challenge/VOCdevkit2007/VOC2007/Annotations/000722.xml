@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000722.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>323095134</flickrid>
+	</source>
+	<owner>
+		<flickrid>mogli e cia</flickrid>
+		<name>bibi &amp; cia (mogli, akira, yumi, laila e cac?)</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>189</xmin>
+			<ymin>88</ymin>
+			<xmax>366</xmax>
+			<ymax>266</ymax>
+		</bndbox>
+	</object>
+</annotation>

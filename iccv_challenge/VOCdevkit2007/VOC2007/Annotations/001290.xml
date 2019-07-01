@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>001290.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>254949273</flickrid>
+	</source>
+	<owner>
+		<flickrid>tgaudmx5</flickrid>
+		<name>Tyler Gaudioso</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>410</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>car</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>26</xmin>
+			<ymin>170</ymin>
+			<xmax>477</xmax>
+			<ymax>336</ymax>
+		</bndbox>
+	</object>
+</annotation>

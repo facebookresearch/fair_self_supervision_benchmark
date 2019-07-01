@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005056.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>252807894</flickrid>
+	</source>
+	<owner>
+		<flickrid>tortadetortuga</flickrid>
+		<name>WENDY BLACK</name>
+	</owner>
+	<size>
+		<width>288</width>
+		<height>372</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dog</name>
+		<pose>Left</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>43</xmin>
+			<ymin>45</ymin>
+			<xmax>242</xmax>
+			<ymax>213</ymax>
+		</bndbox>
+	</object>
+</annotation>

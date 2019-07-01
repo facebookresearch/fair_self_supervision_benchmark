@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006808.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>337320399</flickrid>
+	</source>
+	<owner>
+		<flickrid>Chow Yun-Slim</flickrid>
+		<name>Chow Yun-Slim</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>33</xmin>
+			<ymin>11</ymin>
+			<xmax>266</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>122.2105</xmin>
+				<ymin>60.3404</ymin>
+				<xmax>191.0795</xmax>
+				<ymax>158.1848</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>176.3819</xmin>
+				<ymin>15.8275</ymin>
+				<xmax>215.8555</xmax>
+				<ymax>66.6394</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>67.6193</xmin>
+				<ymin>12.4681</ymin>
+				<xmax>120.9507</xmax>
+				<ymax>67.8992</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

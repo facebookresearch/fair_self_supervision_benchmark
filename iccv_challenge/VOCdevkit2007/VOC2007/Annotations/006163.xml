@@ -1,0 +1,59 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006163.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>302434143</flickrid>
+	</source>
+	<owner>
+		<flickrid>derrickrburns</flickrid>
+		<name>Derrick Burns</name>
+	</owner>
+	<size>
+		<width>357</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>79</xmin>
+			<ymin>89</ymin>
+			<xmax>305</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>149.0448</xmin>
+				<ymin>90.9255</ymin>
+				<xmax>214.5543</xmax>
+				<ymax>181.0711</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>75.6965</xmin>
+				<ymin>368.6411</ymin>
+				<xmax>106.4916</xmax>
+				<ymax>411.7542</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>282.3035</xmin>
+				<ymin>341.2055</ymin>
+				<xmax>299.6607</xmax>
+				<ymax>376.4798</ymax>
+			</bndbox>
+		</part>
+	</object>
+</annotation>

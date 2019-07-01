@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005681.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>338572227</flickrid>
+	</source>
+	<owner>
+		<flickrid>llimp_bizkit</flickrid>
+		<name>Sreevishnu BS</name>
+	</owner>
+	<size>
+		<width>472</width>
+		<height>382</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>18</xmin>
+			<ymin>42</ymin>
+			<xmax>469</xmax>
+			<ymax>346</ymax>
+		</bndbox>
+	</object>
+</annotation>

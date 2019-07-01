@@ -1,0 +1,50 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>006809.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>340638161</flickrid>
+	</source>
+	<owner>
+		<flickrid>Shufflelei</flickrid>
+		<name>Lei</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>375</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>181</xmin>
+				<ymin>98</ymin>
+				<xmax>233</xmax>
+				<ymax>164</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>296</xmin>
+				<ymin>216</ymin>
+				<xmax>342</xmax>
+				<ymax>243</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>128</xmin>
+			<ymin>96</ymin>
+			<xmax>341</xmax>
+			<ymax>374</ymax>
+		</bndbox>
+	</object>
+</annotation>

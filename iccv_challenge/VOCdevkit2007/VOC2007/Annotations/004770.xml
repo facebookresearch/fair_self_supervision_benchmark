@@ -1,0 +1,50 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>004770.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>285522207</flickrid>
+	</source>
+	<owner>
+		<flickrid>Andy Maluche</flickrid>
+		<name>Andy Maluche</name>
+	</owner>
+	<size>
+		<width>335</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>96</xmin>
+				<ymin>6</ymin>
+				<xmax>216</xmax>
+				<ymax>145</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>190</xmin>
+				<ymin>294</ymin>
+				<xmax>328</xmax>
+				<ymax>407</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>83</xmin>
+			<ymin>2</ymin>
+			<xmax>335</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+</annotation>

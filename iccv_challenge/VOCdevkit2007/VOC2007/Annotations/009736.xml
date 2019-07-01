@@ -1,0 +1,50 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>009736.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>331823896</flickrid>
+	</source>
+	<owner>
+		<flickrid>roseandolive</flickrid>
+		<name>RoseAndOlive or the women formerly known as tetheredtothesun</name>
+	</owner>
+	<size>
+		<width>333</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<part>
+			<name>hand</name>
+			<bndbox>
+				<xmin>33</xmin>
+				<ymin>229</ymin>
+				<xmax>159</xmax>
+				<ymax>381</ymax>
+			</bndbox>
+		</part>
+		<part>
+			<name>head</name>
+			<bndbox>
+				<xmin>24</xmin>
+				<ymin>7</ymin>
+				<xmax>308</xmax>
+				<ymax>283</ymax>
+			</bndbox>
+		</part>
+		<bndbox>
+			<xmin>6</xmin>
+			<ymin>5</ymin>
+			<xmax>333</xmax>
+			<ymax>500</ymax>
+		</bndbox>
+	</object>
+</annotation>

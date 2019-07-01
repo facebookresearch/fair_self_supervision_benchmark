@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>002043.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>335049859</flickrid>
+	</source>
+	<owner>
+		<flickrid>karin_b1966</flickrid>
+		<name>Karin</name>
+	</owner>
+	<size>
+		<width>454</width>
+		<height>500</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>horse</name>
+		<pose>Frontal</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>38</xmin>
+			<ymin>12</ymin>
+			<xmax>364</xmax>
+			<ymax>497</ymax>
+		</bndbox>
+	</object>
+</annotation>

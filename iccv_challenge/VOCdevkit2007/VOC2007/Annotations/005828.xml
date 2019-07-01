@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>005828.jpg</filename>
+	<source>
+		<database>The VOC2007 Database</database>
+		<annotation>PASCAL VOC2007</annotation>
+		<image>flickr</image>
+		<flickrid>191587389</flickrid>
+	</source>
+	<owner>
+		<flickrid>Wannabe Surfer</flickrid>
+		<name>Lee Matthews</name>
+	</owner>
+	<size>
+		<width>500</width>
+		<height>291</height>
+		<depth>3</depth>
+	</size>
+	<segmented>1</segmented>
+	<object>
+		<name>aeroplane</name>
+		<pose>Right</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>86</xmin>
+			<ymin>62</ymin>
+			<xmax>443</xmax>
+			<ymax>210</ymax>
+		</bndbox>
+	</object>
+</annotation>
