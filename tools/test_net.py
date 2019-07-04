@@ -12,6 +12,7 @@ from __future__ import unicode_literals
 from __future__ import print_function
 
 import argparse
+import json
 import logging
 import numpy as np
 import os
@@ -41,7 +42,6 @@ helpers.import_detectron_ops()
 def test_net(opts):
     workspace.GlobalInit(['caffe2', '--caffe2_log_level=0'])
     np.random.seed(cfg.RNG_SEED)
-
     prefix, device = helpers.get_prefix_and_device()
 
     ############################################################################
@@ -61,7 +61,8 @@ def test_net(opts):
     test_metrics_calculator = None
     if cfg.METRICS.TYPE == 'topk':
         test_metrics_calculator = metrics_topk.TopkMetricsCalculator(
-            model=test_model, split=data_type, batch_size=batch_size, prefix=prefix
+            model=test_model, split=data_type, batch_size=batch_size, prefix=prefix,
+            generate_json=opts.generate_json
         )
     else:
         test_metrics_calculator = metrics_ap.APMetricsCalculator(
@@ -87,7 +88,10 @@ def test_net(opts):
     ############################################################################
     logger.info("Testing model...")
     test_metrics_calculator.reset()
-    for test_iter in range(0, total_test_iters):
+    # we test for double the number of iterations to ensure that we get output
+    # on all the images due to the multi-threaded/processing nature of dataloader.
+    # This does not affect accuracy in any way.
+    for test_iter in range(0, (total_test_iters * 2)):
         test_timer.tic()
         workspace.RunNet(test_model.net.Proto().name)
         test_timer.toc()
@@ -95,11 +99,19 @@ def test_net(opts):
             helpers.print_net(test_model)
         rem_test_iters = total_test_iters - test_iter - 1
         test_metrics_calculator.calculate_and_log_test_iter_metrics(
-            test_iter, test_timer, rem_test_iters, total_test_iters
+            test_iter, test_timer, rem_test_iters, total_test_iters,
+            input_db=test_model.input_db
         )
     test_metrics_calculator.finalize_metrics()
     test_metrics_calculator.compute_and_log_epoch_best_metric(model_iter=test_iter)
     test_metrics_calculator.log_best_model_metrics(test_iter, total_test_iters)
+    if opts.generate_json:
+        json_predictions = test_metrics_calculator.get_json_predictions()
+        for bl in cfg.ACCURACY_BLOBS:
+            output_file = os.path.join(opts.output_path, '{}_json_preds.json'.format(bl))
+            with open(output_file, 'w') as fp:
+                json.dump(json_predictions[bl], fp)
+            logger.info('Saved {} json predictions to: {}'.format(bl, output_file))
     logger.info('Total images tested: {}'.format(test_metrics_calculator.split_N))
     logger.info('Done!!!')
     test_model.data_loader.shutdown_dataloader()
@@ -111,6 +123,10 @@ def main():
                         help='Optional config file for params')
     parser.add_argument('--args_dict', type=str, default=None,
                         help='Args can also be passed as a dict.')
+    parser.add_argument('--generate_json', type=int, default=0,
+                        help="Whether to generate json files for output")
+    parser.add_argument('--output_path', type=str, default=None,
+                        help="Path where to dump json predictions")
     parser.add_argument('opts', help='see configs.py for all options',
                         default=None, nargs=argparse.REMAINDER)
     if len(sys.argv) == 1:

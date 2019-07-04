@@ -107,7 +107,27 @@ def get_images_labels_info(split, args):
         img_paths.append(
             os.path.join(args.data_source_dir, 'JPEGImages', item + '.jpg'))
         img_labels.append(img_labels_map[item])
-    return img_paths, img_labels
+
+    output_dict = {}
+    if args.generate_json:
+        cls_names = []
+        for item in sorted(data_files):
+            name = item.split('/')[-1].split('.')[0].split('_')[0]
+            cls_names.append(name)
+
+        img_ids, json_img_labels = [], []
+        for item in sorted(img_labels_map.keys()):
+            img_ids.append(item)
+            json_img_labels.append(img_labels_map[item])
+
+        for img_idx in range(len(img_ids)):
+            img_id = img_ids[img_idx]
+            out_lbl = {}
+            for cls_idx in range(len(cls_names)):
+                name = cls_names[cls_idx]
+                out_lbl[name] = int(json_img_labels[img_idx][cls_idx])
+            output_dict[img_id] = out_lbl
+    return img_paths, img_labels, output_dict
 
 
 def main():
@@ -121,6 +141,9 @@ def main():
     parser.add_argument(
         '--separate_partitions', type=int, default=0,
         help="Whether to create files separately for partitions train/test/val")
+    parser.add_argument(
+        '--generate_json', type=int, default=0,
+        help="Whether to json files for partitions train/test/val")
     args = parser.parse_args()
 
     # given the data directory for the partitions train, val, and test, we will
@@ -131,7 +154,7 @@ def main():
 
     for partition in partitions:
         logger.info('========Preparing {} data files========'.format(partition))
-        imgs_info, lbls_info = get_images_labels_info(partition, args)
+        imgs_info, lbls_info, output_dict = get_images_labels_info(partition, args)
         img_info_out_path = os.path.join(
             args.output_dir, partition + '_images.npy')
         label_info_out_path = os.path.join(
@@ -145,6 +168,12 @@ def main():
             partition, np.array(imgs_info).shape))
         np.save(img_info_out_path, np.array(imgs_info))
         np.save(label_info_out_path, np.array(lbls_info))
+        if args.generate_json:
+            json_out_path = os.path.join(args.output_dir, partition + '_targets.json')
+            import json
+            with open(json_out_path, 'w') as fp:
+                json.dump(output_dict, fp)
+            logger.info('Saved Json to: {}'.format(json_out_path))
     logger.info('DONE!')
 
 
