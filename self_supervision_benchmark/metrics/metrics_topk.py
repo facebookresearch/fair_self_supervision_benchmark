@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 class TopkMetricsCalculator():
 
-    def __init__(self, model, split, batch_size, prefix, generate_json):
+    def __init__(self, model, split, batch_size, prefix, generate_json=0):
         self.model = model
         self.split = split
         self.prefix = prefix
