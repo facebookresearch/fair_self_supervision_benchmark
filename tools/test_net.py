@@ -22,8 +22,6 @@ from self_supervision_benchmark.core.config import config as cfg
 from self_supervision_benchmark.core.config import (
     cfg_from_file, cfg_from_list, assert_cfg, print_cfg
 )
-import self_supervision_benchmark.metrics.metrics_topk as metrics_topk
-import self_supervision_benchmark.metrics.metrics_ap as metrics_ap
 from self_supervision_benchmark.utils import helpers, checkpoints
 from self_supervision_benchmark.utils.timer import Timer
 from self_supervision_benchmark.modeling import model_builder
@@ -57,20 +55,17 @@ def test_net(opts):
     test_model.create_net()
     test_model.start_data_loader()
 
-    assert cfg.METRICS.TYPE in ['topk', 'AP'], "Invalid metrics type"
-    test_metrics_calculator = None
-    if cfg.METRICS.TYPE == 'topk':
-        test_metrics_calculator = metrics_topk.TopkMetricsCalculator(
-            model=test_model, split=data_type, batch_size=batch_size, prefix=prefix,
-            generate_json=opts.generate_json
-        )
-    else:
-        test_metrics_calculator = metrics_ap.APMetricsCalculator(
-            model=test_model, split=data_type, batch_size=batch_size, prefix=prefix
-        )
+    test_metrics_calculator = test_model.get_metrics_calculator(
+        data_type, batch_size, prefix, generate_json=opts.generate_json
+    )
 
     test_timer = Timer()
     total_test_iters = helpers.get_num_test_iter(test_model.input_db)
+    if opts.generate_json:
+        # we test for double the number of iterations to ensure that we get
+        # output on all the images due to the multi-threaded/processing nature
+        # of dataloader. This does not affect accuracy in any way.
+        total_test_iters = 2 * total_test_iters
     logger.info('Test epoch iters: {}'.format(total_test_iters))
 
     # save proto for debugging
@@ -88,10 +83,7 @@ def test_net(opts):
     ############################################################################
     logger.info("Testing model...")
     test_metrics_calculator.reset()
-    # we test for double the number of iterations to ensure that we get output
-    # on all the images due to the multi-threaded/processing nature of dataloader.
-    # This does not affect accuracy in any way.
-    for test_iter in range(0, (total_test_iters * 2)):
+    for test_iter in range(0, total_test_iters):
         test_timer.tic()
         workspace.RunNet(test_model.net.Proto().name)
         test_timer.toc()

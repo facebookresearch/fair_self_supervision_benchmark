@@ -17,13 +17,11 @@ import numpy as np
 import os
 import sys
 
+import self_supervision_benchmark.metrics.metrics_helper as metrics_helper
 from self_supervision_benchmark.core.config import config as cfg
 from self_supervision_benchmark.core.config import (
     cfg_from_file, cfg_from_list, assert_cfg, print_cfg
 )
-import self_supervision_benchmark.metrics.metrics_topk as metrics_topk
-import self_supervision_benchmark.metrics.metrics_ap as metrics_ap
-import self_supervision_benchmark.metrics.metrics_helper as metrics_helper
 from self_supervision_benchmark.utils import helpers, checkpoints, lr_utils
 from self_supervision_benchmark.utils.timer import Timer
 from self_supervision_benchmark.modeling import model_builder
@@ -60,15 +58,7 @@ def build_wrapper(is_train, prefix):
     model.create_net()
     model.start_data_loader()
 
-    assert cfg.METRICS.TYPE in ['topk', 'AP'], "Invalid metrics type"
-    if cfg.METRICS.TYPE == 'topk':
-        metrics_calculator = metrics_topk.TopkMetricsCalculator(
-            model=model, split=data_type, batch_size=batch_size, prefix=prefix
-        )
-    else:
-        metrics_calculator = metrics_ap.APMetricsCalculator(
-            model=model, split=data_type, batch_size=batch_size, prefix=prefix
-        )
+    metrics_calculator = model.get_metrics_calculator(data_type, batch_size, prefix)
 
     timer = Timer()
     return model, metrics_calculator, timer

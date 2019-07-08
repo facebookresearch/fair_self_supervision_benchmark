@@ -18,6 +18,8 @@ from __future__ import absolute_import
 
 import logging
 
+import self_supervision_benchmark.metrics.metrics_ap as metrics_ap
+import self_supervision_benchmark.metrics.metrics_topk as metrics_topk
 from self_supervision_benchmark.core.config import config as cfg
 from self_supervision_benchmark.data.dataloader import DataLoader, get_input_db
 from self_supervision_benchmark.modeling.jigsaw import (
@@ -157,6 +159,19 @@ class ModelBuilder(cnn.CNNModelHelper):
         self.data_loader.register_sigint_handler()
         self.data_loader.start()
         self.data_loader.prefill_minibatch_queue()
+
+    def get_metrics_calculator(self, data_type, batch_size, prefix, generate_json=0):
+        assert cfg.METRICS.TYPE in ['topk', 'AP'], "Invalid metrics type"
+        if cfg.METRICS.TYPE == 'topk':
+            metrics_calculator = metrics_topk.TopkMetricsCalculator(
+                model=self, split=data_type, batch_size=batch_size, prefix=prefix,
+                generate_json=generate_json
+            )
+        else:
+            metrics_calculator = metrics_ap.APMetricsCalculator(
+                model=self, split=data_type, batch_size=batch_size, prefix=prefix
+            )
+        return metrics_calculator
 
 
 def create_model(model, split):
