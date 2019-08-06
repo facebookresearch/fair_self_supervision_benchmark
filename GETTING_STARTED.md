@@ -93,6 +93,16 @@ python tools/train_net.py \
 #### Benchmark task 2: Training Object detection model with frozen backbone on VOC07 and VOC07+12 data
 First, install the [Detectron](https://github.com/facebookresearch/Detectron) following the detectron Install commands [here](https://github.com/facebookresearch/Detectron/blob/master/INSTALL.md). We freeze the backbone of the model using `FREEZE_AT=4` and use a slightly longer training schedule for both supervised and self-supervised baselines. All other hyperparameters are same as the Detectron settings. The configuration files for Fast R-CNN and Faster R-CNN on VOC2007 and VOC07+12 datasets are provided in `configs/benchmark_tasks/object_detection_frozen/`. We also provide the model weights converted to be compatible with Detectron blob names and input (see [this](extra_scripts/README.md). You can use model you want to use from the config file and download the model to local disk and use the command below for training.
 
+- **Step 1:** Rename Jigsaw model weights
+
+For this, follow the instructions [here](https://github.com/facebookresearch/fair_self_supervision_benchmark/tree/master/extra_scripts#rename-jigsaw-model-blob-names).
+
+- **Step 2:** Convert model weights to Detectron compatible weights
+
+For this, follow the instructions [here](https://github.com/facebookresearch/fair_self_supervision_benchmark/tree/master/extra_scripts#pickle-jigsaw-model-for-detection).
+
+- **Step 3:** Train detection model using the command below:
+
 ```bash
 # NOTE: this train_net.py is the Detectron codebase train_net.py
 python tools/train_net.py \
