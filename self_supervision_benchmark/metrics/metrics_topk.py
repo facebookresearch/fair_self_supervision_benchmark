@@ -32,15 +32,13 @@ logger = logging.getLogger(__name__)
 
 class TopkMetricsCalculator():
 
-    def __init__(self, model, split, batch_size, prefix, generate_json=0):
+    def __init__(self, model, split, batch_size, prefix):
         self.model = model
         self.split = split
         self.prefix = prefix
         self.batch_size = batch_size
-        self.generate_json = generate_json
         self.best_top1 = self.init_best_err()
         self.best_top5 = self.init_best_err()
-        self.json_predictions = {}
         self.reset()
 
     def init_best_err(self):
@@ -60,7 +58,6 @@ class TopkMetricsCalculator():
         for blob in cfg.ACCURACY_BLOBS:
             self.split_err[blob] = 0.0
             self.split_err5[blob] = 0.0
-            self.json_predictions[blob] = {}
 
     def finalize_metrics(self):
         for item in (self.split_loss.keys()):
@@ -68,9 +65,6 @@ class TopkMetricsCalculator():
         for item in self.split_err.keys():
             self.split_err[item] /= self.split_N
             self.split_err5[item] /= self.split_N
-
-    def get_json_predictions(self):
-        return self.json_predictions
 
     def make_round(self, to_round):
         rounded = {}
@@ -143,14 +137,12 @@ class TopkMetricsCalculator():
 
     def get_split_err(self, input_db):
         blobs_split_err, blobs_split_err5 = {}, {}
-        blobs_accuracy_metrics, blobs_accuracy5_metrics, out_json = {}, {}, {}
+        blobs_accuracy_metrics, blobs_accuracy5_metrics = {}, {}
         for blob in cfg.ACCURACY_BLOBS:
-            blobs_accuracy_metrics[blob], out_json[blob] = compute_multi_device_topk_accuracy(
+            blobs_accuracy_metrics[blob] = compute_multi_device_topk_accuracy(
                 blob, top_k=1, split=self.split, input_db=input_db,
-                generate_json=self.generate_json,
-                out_json_pred=self.json_predictions[blob],
             )
-            blobs_accuracy5_metrics[blob], _ = compute_multi_device_topk_accuracy(
+            blobs_accuracy5_metrics[blob] = compute_multi_device_topk_accuracy(
                 blob, top_k=5, split=self.split, input_db=input_db
             )
             split_err = (1.0 - blobs_accuracy_metrics[blob]) * 100
@@ -159,8 +151,6 @@ class TopkMetricsCalculator():
             blobs_split_err5[blob] = split_err5
             self.split_err[blob] += (split_err * self.batch_size)
             self.split_err5[blob] += (split_err5 * self.batch_size)
-            if self.generate_json:
-                self.json_predictions[blob] = out_json[blob]
         return blobs_split_err, blobs_split_err5
 
     def calculate_and_log_train_iter_metrics(
@@ -225,10 +215,7 @@ class TopkMetricsCalculator():
             return test_str
 
 
-def compute_topk_accuracy(
-    top_k, preds, labels, input_db=None, paths=None, generate_json=False,
-    out_json_pred=None, indices=None
-):
+def compute_topk_accuracy(top_k, preds, labels, input_db=None, paths=None):
     batch_size = preds.shape[0]
     for i in range(batch_size):
         preds[i, :] = np.argsort(-preds[i, :])
@@ -239,38 +226,27 @@ def compute_topk_accuracy(
             labels[j] in top_k_preds[j, :].astype(np.int32).tolist()
         ))
     correct = sum(pred_labels)
-    if generate_json:
-        paths, _, _ = input_db.get_minibatch_path_indexes(indices)
-        for idx in range(len(indices)):
-            img_id = '/'.join(paths[idx].split('/')[-2:])
-            pred_lbl = int(top_k_preds[idx, 0])
-            out_json_pred[img_id] = pred_lbl
-    return (float(correct) / batch_size), out_json_pred
+    return (float(correct) / batch_size)
 
 
-def compute_multi_device_topk_accuracy(
-    blob_name, top_k, split, input_db=None, generate_json=False,
-    out_json_pred=None
-):
+def compute_multi_device_topk_accuracy(blob_name, top_k, split, input_db=None):
     top_k_accuracy = 0.0
     device_prefix, _ = helpers.get_prefix_and_device()
     for idx in range(0, cfg.NUM_DEVICES):
         prefix = '{}{}'.format(device_prefix, idx)
         softmax = workspace.FetchBlob(prefix + '/' + blob_name)
-        indices = workspace.FetchBlob(prefix + '/' + 'db_indices')
         if cfg.TEST.TEN_CROP and split in ['test', 'val']:
             softmax = np.reshape(
-                softmax, (int(softmax.shape[0] / 10), 10, softmax.shape[1]))
+                softmax, (int(softmax.shape[0] / cfg.TEST.TEN_CROP_N), cfg.TEST.TEN_CROP_N, softmax.shape[1]))
             softmax = np.mean(softmax, axis=1)
         labels = workspace.FetchBlob(prefix + '/labels')
         paths = None
         batch_size = softmax.shape[0]
         assert labels.shape[0] == batch_size, \
             "Something went wrong with data loading"
-        acc, out_json_pred = compute_topk_accuracy(
-            top_k, softmax.copy(), labels, input_db, paths, generate_json,
-            out_json_pred, indices
+        acc = compute_topk_accuracy(
+            top_k, softmax.copy(), labels, input_db, paths
         )
         top_k_accuracy += acc
     accuracy = float(top_k_accuracy) / cfg.NUM_DEVICES
-    return accuracy, out_json_pred
+    return accuracy

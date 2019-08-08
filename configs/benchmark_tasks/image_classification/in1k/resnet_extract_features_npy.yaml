@@ -1,0 +1,53 @@
+DATASET: imagenet1knpy
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 1000
+  MODEL_NAME: resnet_jigsaw_siamese_2fc
+  DEPTH: 50
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [res4_5_branch2c_bn_s0]
+    # [
+    # res_conv1_bn_s0_resize,
+    # res2_2_branch2c_bn_s0_s8k16_resize,
+    # res3_3_branch2c_bn_s0_s5k13_resize,
+    # res4_5_branch2c_bn_s0_s3k8_resize]
+    # res5_2_branch2c_bn_s0_s1k6_resize]
+EXTRACT:
+  ENABLED: True
+  SPATIAL: False
+  PREPROCESS: False
+  KMEANS_K: 10000
+  VIS_K: 25
+TRAIN:
+  DATA_TYPE: train
+  DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/train_images.npy
+  LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/train_labels.npy
+  BATCH_SIZE: 256
+  SCALE: 256
+  CROP_SIZE: 64
+  GLOBAL_RESIZE_VALUE: 224
+  DATA_TRANSFORMS: [scale, global_resize] #augmentation must be fix as the extract_feature code is hard coded
+  DATA_PROCESSING: [color_normalization] #augmentation must be fix as the extract_feature code is hard coded
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  # DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/val_images.npy
+  # LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/val_labels.npy
+  DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/train_images.npy
+  LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/train_labels.npy
+  BATCH_SIZE: 1600 #640 # 16*10
+  CROP_SIZE: 64
+  TEN_CROP: True
+  TEN_CROP_N: 10
+  # Best models below
+  # 243 init
+  PARAMS_FILE: /home/prigoyal/20181015/jigsaw_rn50_in1k_5k_perms_configs/unsupervised/jigsaw/pretext/resnet/IN1k_8gpu_siamese_BN_bias_decay_shift_scale.yaml.08_29_01.MkJ6IRPy/imagenet1k/resnet_jigsaw_siamese_2fc/depth_50/c2_model_iter450450.pkl
+  # 247 init
+  PARAMS_FILE: /home/prigoyal/20181107/jigsaw_alexnet_pretext_in22k_90ep_5kperm_resume_configs/unsupervised/jigsaw/pretext/resnet/IN22k_8gpu_siamese_BN_bias_decay_shift_scale.yaml.06_29_42.F1h40tWH/imagenet22k/resnet_jigsaw_siamese_2fc/depth_50/c2_model_iter4989985.pkl
+  # 294 init
+  PARAMS_FILE: /home/prigoyal/20181030/rn50_jigsaw_10kperm_yfcc100m_10ep_configs/unsupervised/jigsaw/pretext/resnet/in1k_schedule/yfcc100m_siamese_BN_bias_decay_shift_scale.yaml.06_30_10.90Ykc6Kn/yfcc100m/resnet_jigsaw_siamese_2fc/depth_50/c2_model_iter3903900.pkl
+  # Best models for Surface Normals, Detection and the Gibson tasks are
+  # different: 288 [in1k], distr 12 [in22k], 295 [yfcc100m]

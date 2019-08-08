@@ -43,7 +43,7 @@ def get_batch_size(split):
     batch_size = None
     if split in ['test', 'val']:
         if cfg.TEST.TEN_CROP:
-            batch_size = int(cfg.TEST.BATCH_SIZE / (cfg.NUM_DEVICES * 10))
+            batch_size = int(cfg.TEST.BATCH_SIZE / (cfg.NUM_DEVICES * cfg.TEST.TEN_CROP_N))
         else:
             batch_size = int(cfg.TEST.BATCH_SIZE / cfg.NUM_DEVICES)
     elif split == 'train':
@@ -54,7 +54,7 @@ def get_batch_size(split):
 def get_num_test_iter(db):
     if cfg.TEST.TEN_CROP:
         test_epoch_iter = int(math.ceil(
-            db.get_db_size() / (float(cfg.TEST.BATCH_SIZE) / 10)
+            db.get_db_size() / (float(cfg.TEST.BATCH_SIZE) / cfg.TEST.TEN_CROP_N)
         ))
     else:
         test_epoch_iter = int(math.ceil(
@@ -71,6 +71,19 @@ def get_model_proto_directory():
         os.makedirs(odir)
     return odir
 
+def get_output_directory():
+    root_folder = ""
+    # either user specifies an output directory or we create a directory
+    if cfg.OUTPUT_DIR:
+        root_folder = cfg.OUTPUT_DIR
+    else:
+        root_folder = os.path.join(
+            '/home/yihuihe/',
+            'caffe2', 'resnet', 'gen'
+        )
+    if not os.path.exists(root_folder):
+        os.makedirs(root_folder)
+    return root_folder
 
 # save model protobuf for inspection later
 def save_model_proto(model):
@@ -113,11 +126,13 @@ def check_nan_losses(num_devices):
 
 def get_flops_params(model, device_id=0):
     model_ops = model.net.Proto().op
-    prefix, _ = get_prefix_and_device()
+    prefix = 'gpu_' if cfg.DEVICE == 'GPU' else 'cpu_'
     master_device = prefix + str(device_id)
     param_ops = []
     for idx in range(len(model_ops)):
         op_type = model.net.Proto().op[idx].type
+        if len(model.net.Proto().op[idx].input) == 0:
+            continue
         op_input = model.net.Proto().op[idx].input[0]
         if op_type in ['Conv', 'FC'] and op_input.find(master_device) >= 0:
             param_ops.append(model.net.Proto().op[idx])
@@ -135,10 +150,11 @@ def get_flops_params(model, device_id=0):
             for op_input in op_inputs:
                 if '_w' in op_input:
                     param_blob = op_input
-                    param_sh = np.array(
+                    param_shape = np.array(
                         workspace.FetchBlob(str(param_blob))).shape
                     layer_params = (
-                        param_sh[0] * param_sh[1] * param_sh[2] * param_sh[3]
+                        param_shape[0] * param_shape[1] *
+                        param_shape[2] * param_shape[3]
                     )
                     output_shape = np.array(
                         workspace.FetchBlob(str(op_output))).shape

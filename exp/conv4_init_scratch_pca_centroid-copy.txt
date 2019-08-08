@@ -1,0 +1,3 @@
+/home/yihuihe/20190724/sigma5.0_top2_LR0.01_centroid5005_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv4_pca_stage2.yaml.08_53_59.W0uV7JUe
+/home/yihuihe/20190724/sigma5.0_top2_LR0.01_centroid10010_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv4_pca_stage2.yaml.08_54_18.E2jYv2yA
+/home/yihuihe/20190724/sigma5.0_top2_LR0.01_centroidlatest_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv4_pca_stage2.yaml.08_54_39.x4MPSMMa

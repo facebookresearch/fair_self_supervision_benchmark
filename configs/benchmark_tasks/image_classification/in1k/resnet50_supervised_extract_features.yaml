@@ -1,0 +1,44 @@
+DATASET: voc2007
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MODEL:
+  NUM_CLASSES: 1000
+  MODEL_NAME: resnet_supervised_finetune_full
+  DEPTH: 50
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  EXTRACT_FEATURES_ONLY: True
+  EXTRACT_BLOBS: [res5_2_branch2c_bn]
+    # [
+    # res_conv1_bn_s0_resize,
+    # res2_2_branch2c_bn_s0_s8k16_resize,
+    # res3_3_branch2c_bn_s0_s5k13_resize,
+    # res4_5_branch2c_bn_s0_s3k8_resize]
+    # res5_2_branch2c_bn_s0_s1k6_resize]
+EXTRACT:
+  ENABLED: True
+  SPATIAL: False
+  PREPROCESS: False
+TRAIN:
+  DATA_TYPE: train
+  DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/train_images.npy
+  LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/train_labels.npy
+  BATCH_SIZE: 256
+  SCALE: 256
+  CROP_SIZE: 64
+  GLOBAL_RESIZE_VALUE: 224
+  DATA_TRANSFORMS: [scale, global_resize]
+  DATA_PROCESSING: [color_normalization]
+TEST:
+  # for VOC2007, we train on the trainval split and evaluate on the test set.
+  DATA_TYPE: test
+  # DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/val_images.npy
+  # LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/val_labels.npy
+  DATA_FILE: /data/users/yihuihe/scratch/in1k_disk/train_images.npy
+  LABELS_FILE: /data/users/yihuihe/scratch/in1k_disk/train_labels.npy
+  BATCH_SIZE: 1600 #640 # 16*10
+  CROP_SIZE: 64
+  TEN_CROP: True
+  TEN_CROP_N: 10
+  # IN1k supervised
+  PARAMS_FILE: /home/prigoyal/20180618/rn50_baseline_p100_configs/baselines/IN1K_resnet50_8gpu_baseline.yaml.09_01_45.4vorasC6/imagenet1k/resnet_imagenet/depth_50/bestModel.pkl

@@ -17,7 +17,6 @@ from __future__ import unicode_literals
 from __future__ import print_function
 
 import argparse
-import json
 import logging
 import numpy as np
 import os
@@ -63,21 +62,8 @@ def get_chosen_costs(opts, num_classes):
     return np.array(chosen_cost)
 
 
-def load_json(file_path):
-    assert os.path.exists(file_path), "{} does not exist".format(file_path)
-    with open(file_path, 'r') as fp:
-        data = json.load(fp)
-    img_ids = list(data.keys())
-    cls_names = list(data[img_ids[0]].keys())
-    return img_ids, cls_names
-
-
 def test_svm(opts):
     assert os.path.exists(opts.data_file), "Data file not found. Abort!"
-    json_predictions, img_ids, cls_names = {}, [], []
-    if opts.generate_json:
-        img_ids, cls_names = load_json(opts.json_targets)
-
     features, targets = svm_helper.load_input_data(
         opts.data_file, opts.targets_data_file
     )
@@ -102,17 +88,6 @@ def test_svm(opts):
             else:
                 model = pickle.load(fopen, encoding='latin1')
         prediction = model.decision_function(features)
-        if opts.generate_json:
-            cls_name = cls_names[cls]
-            for idx in range(len(prediction)):
-                img_id = img_ids[idx]
-                if img_id in json_predictions:
-                    json_predictions[img_id][cls_name] = prediction[idx]
-                else:
-                    out_lbl = {}
-                    out_lbl[cls_name] = prediction[idx]
-                    json_predictions[img_id] = out_lbl
-
         cls_labels = targets[:, cls]
         # meaning of labels in VOC/COCO original loaded target files:
         # label 0 = not present, set it to -1 as svm train target
@@ -125,11 +100,6 @@ def test_svm(opts):
             eval_cls_labels, eval_preds
         )
         ap_matrix[cls][0] = ap
-    if opts.generate_json:
-        output_file = os.path.join(opts.output_path, 'json_preds.json')
-        with open(output_file, 'w') as fp:
-            json.dump(json_predictions, fp)
-        logger.info('Saved json predictions to: {}'.format(output_file))
     logger.info('Mean AP: {}'.format(np.mean(ap_matrix, axis=0)))
     np.save(os.path.join(opts.output_path, 'test_ap.npy'), np.array(ap_matrix))
     logger.info('saved test AP to file: {}'.format(
@@ -140,16 +110,12 @@ def main():
     parser = argparse.ArgumentParser(description='SVM model test')
     parser.add_argument('--data_file', type=str, default=None,
                         help="Numpy file containing image features and labels")
-    parser.add_argument('--json_targets', type=str, default=None,
-                        help="Numpy file containing json targets")
     parser.add_argument('--targets_data_file', type=str, default=None,
                         help="Numpy file containing image labels")
     parser.add_argument('--costs_list', type=str, default="0.01,0.1",
                         help="comma separated string containing list of costs")
     parser.add_argument('--output_path', type=str, default=None,
                         help="path where trained SVM models are saved")
-    parser.add_argument('--generate_json', type=int, default=0,
-                        help="Whether to generate json files for output")
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)

@@ -74,11 +74,22 @@ def scale_momentum(scale, model):
             with core.NameScope("{}{}".format(prefix, idx)):
                 params = model.GetParams()
                 for param in params:
-                    op = core.CreateOperator(
-                        'Scale', [param + '_momentum'], [param + '_momentum'],
-                        scale=scale)
-                    workspace.RunOperatorOnce(op)
-
+                    if cfg.MIDLEVEL.MIDLEVEL_ON:
+                        skip = False
+                        for tower in ['_s0', '_s1', '_s2', '_s3', '_s5', '_s6', '_s7', '_s8']:
+                            if tower in str(param):
+                                skip = True
+                                break
+                        if skip:
+                            logger.info('skip scaling momentum for ' + str(param))
+                            continue
+                    try:
+                        op = core.CreateOperator(
+                            'Scale', [param + '_momentum'], [param + '_momentum'],
+                            scale=scale)
+                        workspace.RunOperatorOnce(op)
+                    except:
+                        logger.warning('failed scaling momentum for '+ param)
 
 def add_variable_stepsize_lr(
     curr_iter, num_devices, lr_iters, start_model_iter, epoch_iters=None,

@@ -42,10 +42,12 @@ def pickle_jigsaw_model(opts, pickle_format=2):
     data = data['blobs']
 
     output_blobs, count = {}, 0
-    skip_suffixes = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']
+    skip_suffixes  = ['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']
+    center_patch = skip_suffixes[opts.center_patch]
+    skip_suffixes.pop(opts.center_patch)
     logger.info('Converting jigsaw model..................')
     for item in sorted(data.keys()):
-        if 's0' in item:
+        if '_'+center_patch+'_'in item:
             # remove s0 from the blob names.
             out_name = re.sub('_s[0-9]_', '_', item)
             logger.info('input_name: {} out_name: {}'.format(item, out_name))
@@ -76,6 +78,8 @@ def main():
                         help='Input model file .pkl')
     parser.add_argument('--output_file', type=str, default=None,
                         help='Output model file .pkl')
+    parser.add_argument('--center_patch', type=int, default=0,
+                        help='patch to extract')
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)

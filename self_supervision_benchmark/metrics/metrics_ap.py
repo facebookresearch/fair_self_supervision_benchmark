@@ -178,7 +178,7 @@ def compute_multi_device_mAP(split):
         preds = workspace.FetchBlob(prefix + '/pred')
         if cfg.TEST.TEN_CROP and split in ['test', 'val']:
             preds = np.reshape(
-                preds, (int(preds.shape[0] / 10), 10, preds.shape[1]))
+                preds, (int(preds.shape[0] / cfg.TEST.TEN_CROP_N), cfg.TEST.TEN_CROP_N, preds.shape[1]))
             preds = np.sum(preds, axis=1)
         labels = workspace.FetchBlob(prefix + '/labels')
         batch_size = preds.shape[0]
