@@ -64,7 +64,7 @@ def train_svm(opts):
             out_file, ap_out_file = svm_helper.get_svm_train_output_files(
                 cls, cost, opts.output_path
             )
-            if os.path.exists(out_file) and os.path.exists(ap_out_file):
+            if False and os.path.exists(out_file) and os.path.exists(ap_out_file):
                 logger.info('SVM model exists: {}'.format(out_file))
                 logger.info('AP file exists: {}'.format(ap_out_file))
             else:

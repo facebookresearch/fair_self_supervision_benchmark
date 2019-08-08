@@ -84,7 +84,10 @@ def create_model(model, data, labels, split):
         residual_block, blob_in, dim_in, 2048, stride=2, num_blocks=n4,
         prefix='res5', dim_inner=512,
     )
-
+    if cfg.EXTRACT.ENABLED:
+        model.ReduceMean('res5_2_branch2c_bn', 'res5_2_branch2c_bn_avg', axes=[2,3])
+        return model, None, None
+        
     ################################## pool5 ###################################
     pool_blob = model.AveragePool(blob_in, 'pool5', kernel=7, stride=1)
 

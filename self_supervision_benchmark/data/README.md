@@ -1,105 +1,16 @@
-# Datasets setup
+### Supported Datasets
 
-In this README, we describe the expected data format for various tasks. We provide support for the following datasets:
+We provide support for the following datasets used in the benchmark tasks.
 
-- [ImageNet-1K](http://www.image-net.org/)
-- [Places205](http://places.csail.mit.edu/downloadData.html)
-- [COCO2014](http://cocodataset.org/#download)
-- [VOC2007](http://host.robots.ox.ac.uk/pascal/VOC/)
-- [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/)
+0. ImageNet-1K
+1. Places205
+2. COCO2014
+3. VOC2007
 
-Our tasks assume the data input to have to have two numpy files: (1) file containing images information (2) file containing corresponding labels for images. We provide [scripts](https://github.com/facebookresearch/fair_self_supervision_benchmark/blob/master/extra_scripts/README.md) that can be used to prepare these two files for a dataset of choice.
-
-## COCO dataset
-We assume the downloaded data to look like:
+*NOTE:* for places205 dataset, we assume the data to be available as well just
+like ImageNet-1k which follows the structure:
 
 ```
-coco
-|_ coco_train2014
-|  |_ <im-1-name>.jpg
-|  |_ ...
-|  |_ <im-N-name>.jpg
-|_ coco_val2014
-|_ ...
-|_ annotations
-   |_ instances_train2014.json
-   |_ ...
+<root_folder>/<train or val>/<class_name>/image.jpg
 ```
-
-The **annotations** are available for download with Detectron [here](https://github.com/facebookresearch/Detectron/blob/master/detectron/datasets/data/README.md#coco-minival-annotations).
-
-
-## PASCAL VOC dataset
-We assume the downloaded data to look like:
-
-```
-VOC<year>
-|_ JPEGImages
-|  |_ <im-1-name>.jpg
-|  |_ ...
-|  |_ <im-N-name>.jpg
-|_ annotations
-|  |_ voc_<year>_train.json
-|  |_ voc_<year>_val.json
-|  |_ ...
-|_ VOCdevkit<year>
-```
-
-## ImageNet-1K dataset
-We assume the downloaded data to look like:
-
-```
-imagenet_full_size
-|_ train
-|  |_ <n0......>
-|  |  |_<im-1-name>.JPEG
-|  |  |_...
-|  |  |_<im-N-name>.JPEG
-|  |_ ...
-|  |_ <n1......>
-|  |  |_<im-1-name>.JPEG
-|  |  |_...
-|  |  |_<im-M-name>.JPEG
-|  |  |_...
-|  |  |_...
-|_ val
-|  |_ <n0......>
-|  |  |_<im-1-name>.JPEG
-|  |  |_...
-|  |  |_<im-N-name>.JPEG
-|  |_ ...
-|  |_ <n1......>
-|  |  |_<im-1-name>.JPEG
-|  |  |_...
-|  |  |_<im-M-name>.JPEG
-|  |  |_...
-|  |  |_...
-```
-
-
-## Places-205 dataset
-We assume the downloaded data to look like below. We take the original train/val split .csv file and convert the data to the format below.
-
-```
-places
-|_ train
-|  |_ <abbey>
-|  |  |_<im-1-name>.jpg
-|  |  |_...
-|  |  |_<im-N-name>.jpg
-|  |_ ...
-|  |_ <yard>
-|  |  |_<im-1-name>.jpg
-|  |  |_...
-|  |  |_<im-M-name>.jpg
-|_ val
-|  |  |_<im-1-name>.jpg
-|  |  |_...
-|  |  |_<im-N-name>.jpg
-|  |_ ...
-|  |_ <yard>
-|  |  |_<im-1-name>.jpg
-|  |  |_...
-|  |  |_<im-M-name>.jpg
-```
-
+Inside fbcode, we have places205 dataset inside everstore to load from. See https://fb.quip.com/2BH7AoRi7uVg for where the dataset lives originally on gfsai.

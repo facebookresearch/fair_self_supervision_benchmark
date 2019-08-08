@@ -41,6 +41,8 @@ import cv2
 import numpy as np
 import math
 
+# import experimental.deeplearning.yihuihe.self_supervision_benchmark.self_supervision_benchmark.data.data_transformation_pyx as dtx
+
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
 # thread safe and causes unwanted GPU memory allocations.
 cv2.ocl.setUseOpenCL(False)
@@ -95,6 +97,18 @@ def mean_normalization(img, mean, ten_crop=False):
         assert len(mean) == img.shape[0], 'channel mean not computed properly'
         img = img - mean[:, np.newaxis, np.newaxis]
     return img
+
+# Image should be in format CHW
+def batch_mean_normalization(imgs, mean):
+    assert len(mean) == imgs.shape[1], 'channel mean not computed properly'
+    return mean_normalization(imgs, mean, True)
+
+
+# Image should be in format CHW
+def batch_color_normalization(imgs, mean, stddev):
+    assert len(mean) == imgs.shape[1], 'channel mean not computed properly'
+    assert len(stddev) == imgs.shape[1], 'channel stddev not computed properly'
+    return color_normalization(imgs, mean, stddev, True)
 
 
 def pad_image(pad_size, image, order='CHW'):
@@ -209,13 +223,46 @@ def ten_crop(size, image):
     return np.concatenate(
         [arr[np.newaxis] for arr in ten_crop_images]).astype(np.float32)
 
+# image should be in format HWC
+def nine_crop(size, image):
+    nine_crop_images = []
 
-def ten_random_crop(size, image):
+    height = image.shape[0]
+    width = image.shape[1]
+    y_offset = int(math.ceil((height - size) / 2))
+    x_offset = int(math.ceil((width - size) / 2))
+
+    # given an image, crop the 4 corners and center of given size
+    center_cropped = center_crop(size, image)
+    nine_crop_images.extend([center_cropped])
+    # crop the top left corner:
+    nine_crop_images.extend([image[0:size, 0:size, :]])
+    # crop the top right corner
+    nine_crop_images.extend([image[0:size, width - size:width, :]])
+    # crop bottom left corner
+    nine_crop_images.extend([image[height - size:height, 0:size, :]])
+    # crop bottom right corner
+    nine_crop_images.extend([image[height - size:height, width - size:width, :]])
+
+    # crop the left
+    nine_crop_images.extend([image[y_offset:y_offset + size, 0:size, :]])
+    # crop right
+    nine_crop_images.extend([image[y_offset:y_offset + size, width - size:width, :]])
+    # crop top
+    nine_crop_images.extend([image[0:size, x_offset:x_offset + size, :]])
+    # crop bottom
+    nine_crop_images.extend([image[height - size:height, x_offset:x_offset + size, :]])
+
+    # convert this into 9 x H x W x C
+    return np.concatenate(
+        [arr[np.newaxis] for arr in nine_crop_images]).astype(np.float32)
+
+def ten_random_crop(size, image, n=10):
     ten_random_crop_images = []
-    for _ in range(10):
+    for _ in range(n):
         img = random_crop(image, size, order='HWC')
         ten_random_crop_images.append(img)
-    # convert this into 10 x H x W x C
+    # convert this into n x H x W x C
     return np.concatenate(
         [arr[np.newaxis] for arr in ten_random_crop_images]).astype(np.float32)
 

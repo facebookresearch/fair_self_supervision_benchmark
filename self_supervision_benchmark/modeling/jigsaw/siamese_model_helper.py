@@ -24,9 +24,10 @@ from self_supervision_benchmark.core.config import config as cfg
 
 class SiameseModelHelper():
 
-    def __init__(self, model, split):
+    def __init__(self, model, split, nonshared_index=[]):
         self.model = model
         self.split = split
+        self.nonshared_index = nonshared_index
 
     def get_test_mode(self):
         test_mode = False
@@ -38,7 +39,7 @@ class SiameseModelHelper():
     def add_shortcut(self, blob_in, dim_in, dim_out, stride, prefix, index):
         if dim_in == dim_out:
             return blob_in
-        if index == 0:
+        if index == 0 or index in self.nonshared_index:
             conv_blob = self.model.Conv(
                 blob_in, prefix + '_s{}'.format(index), dim_in, dim_out,
                 kernel=1, stride=stride, weight_init=("MSRAFill", {}), no_bias=1
@@ -67,7 +68,7 @@ class SiameseModelHelper():
         self, blob_in, dim_in, dim_out, kernel, stride, prefix, index, group=1,
         pad=1,
     ):
-        if index == 0:
+        if index == 0 or index in self.nonshared_index:
             conv_blob = self.model.Conv(
                 blob_in, prefix + '_s{}'.format(index), dim_in, dim_out, kernel,
                 stride=stride, pad=pad, group=group,

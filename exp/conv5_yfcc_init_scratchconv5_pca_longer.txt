@@ -1,0 +1,2 @@
+yihuihe/20190730/sigma5.0_top8_LR0.01_crop5_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv5_pca.yaml.13_43_03.Y8FkNxcZ
+yihuihe/20190730/sigma5.0_top8_LR0.1_crop5_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv5_pca.yaml.13_42_40.BtqbAsOE

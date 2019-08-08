@@ -28,7 +28,7 @@ from collections import OrderedDict
 from six.moves import queue as Queue
 
 from self_supervision_benchmark.core.config import config as cfg
-from self_supervision_benchmark.data.image_dataset import ImageDataset
+from self_supervision_benchmark.data.image_dataset import ImageDataset, NpyDataset
 from self_supervision_benchmark.data.data_input import create_data_input
 from self_supervision_benchmark.utils import helpers
 from self_supervision_benchmark.utils.coordinator import (
@@ -49,6 +49,8 @@ db_loader_map = {
     'voc2007': ImageDataset,
     'voc2012': ImageDataset,
     'places205': ImageDataset,
+
+    'imagenet1knpy': NpyDataset,
 }
 
 
@@ -69,10 +71,10 @@ class DataLoader(object):
         input_db,
         batch_size,
         preprocess,
-        num_workers=4,
+        # num_workers=4,
         # num_workers=8,
-        # num_workers=12,
-        num_processes=4,
+        num_workers=12,
+        num_processes=16,
         num_enqueuers=1,
         # minibatch_queue_size=128,
         minibatch_queue_size=64,
@@ -108,10 +110,19 @@ class DataLoader(object):
 
         # get the expected data size - to be used for declaring memory for
         # multiprocessing
+        self._num_patches = 1
+        if cfg.JIGSAW.JIGSAW_ON:
+            self._num_patches = cfg.JIGSAW.NUM_PATCHES
         self._crop_size = cfg.TRAIN.CROP_SIZE
-        self._expected_data_size = 3 * self._crop_size ** 2
+        self.jigsaw_perms = None
+        if cfg.JIGSAW.JIGSAW_ON and cfg.JIGSAW.NUM_PATCHES > 1:
+            self._crop_size = cfg.JIGSAW.PATCH_SIZE
+            self.jigsaw_perms = np.load(cfg.JIGSAW.PERM_FILE)
+            if np.min(self.jigsaw_perms) == 1:
+                self.jigsaw_perms = self.jigsaw_perms - 1
+        self._expected_data_size = 3 * self._num_patches * self._crop_size ** 2
         if split in ['test', 'val'] and cfg.TEST.TEN_CROP:
-            self._expected_data_size = 10 * self._expected_data_size
+            self._expected_data_size = cfg.TEST.TEN_CROP_N * self._expected_data_size
 
         if split == 'train':
             self._get_data_perm()
@@ -183,14 +194,15 @@ class DataLoader(object):
         Returns next blobs to be used for the next mini-batch queue
         """
         db_indices = self._get_next_minibatch_indices()
-        minibatch_data, minibatch_labels, weights = self._minibatch_fetch_func(
+        minibatch_data, minibatch_labels, mini_weights = self._minibatch_fetch_func(
             self._input_db, worker_id, self._batch_size, db_indices,
+            self.jigsaw_perms
         )
         minibatch_blobs = {
             'data': minibatch_data,
             'labels': minibatch_labels,
             'db_indices': np.array(db_indices).astype(np.int32),
-            'img_weight': weights,
+            'img_weight': mini_weights,
         }
         return minibatch_blobs
 

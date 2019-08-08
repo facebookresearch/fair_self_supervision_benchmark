@@ -18,13 +18,13 @@ from __future__ import absolute_import
 
 import logging
 
-import self_supervision_benchmark.metrics.metrics_ap as metrics_ap
-import self_supervision_benchmark.metrics.metrics_topk as metrics_topk
 from self_supervision_benchmark.core.config import config as cfg
 from self_supervision_benchmark.data.dataloader import DataLoader, get_input_db
 from self_supervision_benchmark.modeling.jigsaw import (
     alexnet_jigsaw_finetune_full, alexnet_jigsaw_finetune_linear,
     resnet_jigsaw_finetune_full, resnet_jigsaw_finetune_linear,
+    resnet_jigsaw_siamese_2fc,
+    resnet_midlevel_delayed_fc,
 )
 from self_supervision_benchmark.modeling.colorization import (
     alexnet_colorize_finetune_full, alexnet_colorize_finetune_linear,
@@ -36,12 +36,24 @@ from self_supervision_benchmark.modeling.supervised import (
     resnet_supervised_finetune_linear,
 )
 from self_supervision_benchmark.utils import helpers, lr_utils
+from self_supervision_benchmark.modeling.clustering import AssignClusterOp
+# from self_supervision_benchmark.modeling.select_patch import SelectPatchOp
 
 from caffe2.proto import caffe2_pb2
-from caffe2.python import workspace, scope, core, cnn, data_parallel_model
+from caffe2.python import workspace, scope, core, cnn, data_parallel_model, dyndep
 
 # create the logger
 logger = logging.getLogger(__name__)
+
+op_path = 'experimental/deeplearning/yihuihe/self_supervision_benchmark/self_supervision_benchmark/ops'
+# dyndep.InitOpsLibrary('@/' + op_path + ':upsample_nearest_op')
+dyndep.InitOpsLibrary('@/' + op_path + ':spatial_downsample_op')
+dyndep.InitOpsLibrary('@/' + op_path + ':spatial_softmax_op')
+dyndep.InitOpsLibrary('@/' + op_path + ':spatial_softmax_cross_entropy_loss_op')
+dyndep.InitOpsLibrary('@/' + op_path + ':custom_resize_op')
+# dyndep.InitOpsLibrary('@/caffe2/caffe2/distributed:file_store_handler_ops')
+# dyndep.InitOpsLibrary('@/caffe2/caffe2/distributed:redis_store_handler_ops')
+# dyndep.InitOpsLibrary('@/caffe2/modules/detectron:detectron_ops')
 
 
 # To add new models, import them, add them to this map and models/TARGETS.
@@ -49,6 +61,8 @@ logger = logging.getLogger(__name__)
 model_creator_map = {
     'resnet_colorize_finetune_full': resnet_colorize_finetune_full,
     'resnet_colorize_finetune_linear': resnet_colorize_finetune_linear,
+    'resnet_jigsaw_siamese_2fc': resnet_jigsaw_siamese_2fc,
+    'resnet_midlevel_delayed_fc': resnet_midlevel_delayed_fc,
     'resnet_jigsaw_finetune_full': resnet_jigsaw_finetune_full,
     'resnet_jigsaw_finetune_linear': resnet_jigsaw_finetune_linear,
     'resnet_supervised_finetune_full': resnet_supervised_finetune_full,
@@ -160,19 +174,15 @@ class ModelBuilder(cnn.CNNModelHelper):
         self.data_loader.start()
         self.data_loader.prefill_minibatch_queue()
 
-    def get_metrics_calculator(self, data_type, batch_size, prefix, generate_json=0):
-        assert cfg.METRICS.TYPE in ['topk', 'AP'], "Invalid metrics type"
-        if cfg.METRICS.TYPE == 'topk':
-            metrics_calculator = metrics_topk.TopkMetricsCalculator(
-                model=self, split=data_type, batch_size=batch_size, prefix=prefix,
-                generate_json=generate_json
-            )
-        else:
-            metrics_calculator = metrics_ap.APMetricsCalculator(
-                model=self, split=data_type, batch_size=batch_size, prefix=prefix
-            )
-        return metrics_calculator
+    def AssignCluster(self, blob_in, blob_out):
+        self.net.Python(AssignClusterOp().forward)(
+            blob_in, blob_out, name='AssignClusterOp')
+        return blob_out
 
+    def SelectPatch(self, blob_in, blob_out):
+        self.net.Python(SelectPatchOp().forward)(
+            blob_in, blob_out, name='SelectPatchOp')
+        return blob_out
 
 def create_model(model, split):
     """
@@ -243,6 +253,19 @@ def add_parameter_update_ops(model):
         # scope is of format 'gpu_{}/'.format(device_id), so remove the separator
         trainable_params = model.TrainableParams(curr_scope[:-1])
         assert len(params) > 0, 'No trainable params found in model'
+
+        if cfg.MIDLEVEL.MIDLEVEL_ON and not cfg.MIDLEVEL.INIT_CONV5:
+            logger.info("decrease learning rate of conv1-4 by 0.1")
+            grad_map = model.param_to_grad
+            # now we need to get the grad_map for the params
+            grad_map_for_param = {key: grad_map[key] for key in trainable_params}
+            for key, grad in grad_map_for_param.items():
+                for prefix in ['conv1', 'res1', 'res2', 'res3', 'res4']:
+                    if prefix in str(key):
+                        logger.info("decrease learning rate for {}".format(str(key)))
+                        model.net.Scale([grad], [grad], scale=0.1)
+                        break
+
         for param in params:
             # only update trainable params
             if param in trainable_params:

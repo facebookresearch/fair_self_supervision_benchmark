@@ -1,0 +1,33 @@
+load("@fbcode_macros//build_defs:python_binary.bzl", "python_binary")
+
+py_binaries = [
+    "create_coco_data_files",
+    "create_voc_data_files",
+    "create_imagenet_data_files",
+    "generate_jigsaw_permutations",
+    "generate_colorization_bins_priors",
+    "create_voc_low_shot_samples",
+    "create_places_low_shot_samples",
+    "pickle_jigsaw_model",
+    "pickle_caffe2_to_pytorch",
+    "pickle_caffe2_detection",
+]
+
+for name in py_binaries:
+    python_binary(
+        name = name,
+        srcs = [
+            "{}.py".format(name),
+        ],
+        base_module = "",
+        main_module = name,
+        deps = [
+            "//deeplearning/projects/cocoApi/PythonAPI:pycocotools",
+            "//pytorch/vision:torchvision",
+        ],
+        external_deps = [
+            "numpy",
+            "six",
+            ("opencv3", None),
+        ],
+    )

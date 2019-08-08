@@ -1,0 +1,79 @@
+DATADIR: /data/local/packages/ai-group.imagenet-full-size/prod/imagenet_full_size/
+DATASET: imagenet1k
+LOSS_BLOBS: [loss]
+ACCURACY_BLOBS: [pred]
+NUM_DEVICES: 8
+LOGGER_FREQUENCY: 10
+MIDLEVEL:
+  MIDLEVEL_ON: True
+  INIT_WEIGHT_BROADCAST: False
+  CENTROIDS_FILE: /home/yihuihe/centroids
+  GAUSSIAN_TOPK: -1 #200
+JIGSAW:
+  JIGSAW_ON: True
+  # PERM_FILE: /home/prigoyal/caffe2/resnet/gen/naroozi_perms_100_max.npy
+  # PERM_FILE: /home/prigoyal/caffe2/resnet/gen/naroozi_perms_701_max.npy
+  # PERM_FILE: /home/prigoyal/caffe2/resnet/gen/hamming_perms_2000_patches_9_max_avg.npy
+  # PERM_FILE: /home/prigoyal/caffe2/resnet/gen/hamming_perms_5000_patches_9_max_avg.npy
+  PERM_FILE: /home/prigoyal/caffe2/resnet/gen/hamming_perms_10000_patches_9_max_avg.npy
+  NUM_PATCHES: 9
+  PATCH_SIZE: 64
+  CHANNEL_JITTER: 0
+  FC6_CHANNELS: 1024
+  WEIGHT_INIT: xavier
+  CONV_BIAS_INIT: 0.0
+  FC_BIAS_INIT: 0.0
+  BN_NO_SCALE_SHIFT: False
+  NO_BIAS_DECAY: False
+  NO_SHUFFLE: True
+MODEL:
+  TEST_MODEL: False
+  # NUM_CLASSES: 100
+  # NUM_CLASSES: 701
+  # NUM_CLASSES: 2000
+  # NUM_CLASSES: 5000
+  NUM_CLASSES: 10000
+  MODEL_NAME: resnet_midlevel_delayed_fc
+  BN_MOMENTUM: 0.9
+  BN_EPSILON: 1.0000001e-5
+  ALLOW_INPLACE_SUM: True
+  MEMONGER: True
+  # CUSTOM_BN_INIT: True
+  # BN_INIT_GAMMA: 0.0
+  DEPTH: 50
+  # DEPTH: 101
+  FINE_TUNE: False
+TRAIN:
+  DATA_TYPE: train
+  BATCH_SIZE: 256
+  EVALUATION_FREQUENCY: 5005
+  SCALE: 256
+  CROP_SIZE: 255
+  DATA_TRANSFORMS: [scale, random_crop]
+  # DATA_PROCESSING: [batch_color_normalization, batch_grayscale, color_proj]
+  DATA_PROCESSING: [batch_color_normalization]
+  # DATA_PROCESSING: [mean_normalization, batch_grayscale, color_proj]
+  PARAMS_FILE: /home/prigoyal/20181030/rn50_jigsaw_10kperm_yfcc100m_10ep_configs/unsupervised/jigsaw/pretext/resnet/in1k_schedule/yfcc100m_siamese_BN_bias_decay_shift_scale.yaml.06_30_10.90Ykc6Kn/yfcc100m/resnet_jigsaw_siamese_2fc/depth_50/c2_model_iter3903900.pkl
+  # PARAMS_FILE: /data/users/yihuihe/scratch/20181030/rn50_jigsaw_10kperm_yfcc100m_10ep_configs/unsupervised/jigsaw/pretext/resnet/in1k_schedule/yfcc100m_siamese_BN_bias_decay_shift_scale.yaml.06_30_10.90Ykc6Kn/yfcc100m/resnet_jigsaw_siamese_2fc/depth_50/c2_model_iter3903900.pkl
+TEST:
+  DATA_TYPE: val
+  BATCH_SIZE: 256
+SOLVER:
+  BASE_LR: 0.1
+  # STEP_SIZES: [150150, 150150, 100100]
+  STEP_SIZES: [150150, 150150, 100100]
+  # NUM_ITERATIONS: 450450
+  NUM_ITERATIONS: 450450
+  WEIGHT_DECAY: 0.0001
+  WEIGHT_DECAY_BN: 0.0
+  MOMENTUM: 0.9
+  GAMMA: 0.1
+  NESTEROV: True
+  SCALE_MOMENTUM: True
+CHECKPOINT:
+  DIR: .
+  CHECKPOINT_PERIOD: 5005
+METRICS:
+  # EVALUATE_ALL_CLASSES: False
+  EVALUATE_ALL_CLASSES: True
+  EVALUATE_FIRST_N_WAYS: False

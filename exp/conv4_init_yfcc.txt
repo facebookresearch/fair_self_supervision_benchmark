@@ -1,0 +1,9 @@
+/home/yihuihe/20190702/sigma5.0_top1000_LR0.001_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_59_58.AkkZc3Td
+/home/yihuihe/20190702/sigma5.0_top100_LR0.001_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_59_24.4J7qy7cJ
+/home/yihuihe/20190702/sigma5.0_top8_LR0.001_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_59_05.fRjbApfL
+/home/yihuihe/20190702/sigma5.0_top1000_LR0.01_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_58_42.jdlkpRS3
+/home/yihuihe/20190702/sigma5.0_top100_LR0.01_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_58_07.0k16AhLV
+/home/yihuihe/20190702/sigma5.0_top8_LR0.01_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_57_52.8NfwntVT
+/home/yihuihe/20190702/sigma5.0_top1000_LR0.1_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_57_37.RYxfg23J
+/home/yihuihe/20190702/sigma5.0_top100_LR0.1_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_57_01.m4zNJdXm
+/home/yihuihe/20190702/sigma5.0_top8_LR0.1_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.13_56_41.RbCCtJ9W

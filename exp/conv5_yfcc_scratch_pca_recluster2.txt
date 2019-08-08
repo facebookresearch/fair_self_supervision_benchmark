@@ -1,0 +1,1 @@
+yihuihe/20190720/sigma5.0_top500_LR0.01_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale_conv5_scratch_pca.yaml.20_31_31.ZRJW9wqt

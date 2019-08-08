@@ -71,6 +71,15 @@ def save_model_params(model, params_file, checkpoint_dir, model_iter):
         if unscoped_blob_name not in save_blobs:
             data = workspace.FetchBlob(scoped_blob_name)
             save_blobs[unscoped_blob_name] = data
+
+    if cfg.MIDLEVEL.MIDLEVEL_ON and save_blobs['model_iter'] % cfg.MIDLEVEL.RECLUSTER_PERIOD == 0:
+    #TODO (yihuihe): we must stop training after saving
+        for k in list(save_blobs):
+            if '_s4' in k:
+                newkey = k.replace('_s4', '_s0')
+                save_blobs[newkey] = save_blobs[k].copy()
+                logger.info('broadcasting shared weights from {:s} to {:s}'.format(k, newkey))
+
     save_object(dict(blobs=save_blobs), params_file)
 
 
@@ -107,8 +116,10 @@ def load_model_from_params_file(model, params_file, checkpoint_dir=None):
     if params_file and os.path.exists(params_file) and not checkpoint_exists:
         logger.info('Model init from params file: {}'.format(params_file))
         start_model_iter, prev_lr = initialize_params_from_file(
-            model=model, weights_file=params_file, num_devices=cfg.NUM_DEVICES,
+            model=model, weights_file=params_file, num_devices=cfg.NUM_DEVICES, given_iter=0,
         )
+        # start model iter should be 0 so we can finetune from other models
+        start_model_iter = 0
     elif cfg.CHECKPOINT.RESUME and cfg.CHECKPOINT.CHECKPOINT_ON:
         start_model_iter = 0
         params_file = get_checkpoint_resume_file(checkpoint_dir)
@@ -129,7 +140,7 @@ def get_momentum_blobs(param):
     return momentum_blobs
 
 
-def initialize_master_device_model_params(model, weights_file):
+def initialize_master_device_model_params(model, weights_file, given_iter=-1):
     ws_blobs = workspace.Blobs()
     if weights_file.endswith('npy'):
         # The default encoding in Python 2 is ascii; in Python 3 it is utf-8.
@@ -146,13 +157,63 @@ def initialize_master_device_model_params(model, weights_file):
     if 'blobs' in blobs:
         blobs = blobs['blobs']
 
+    if not cfg.MIDLEVEL.MIDLEVEL_ON:
+        # oldkeys = blobs.keys()
+        for k in list(blobs):
+            if '_s4' in k:
+                newkey = k.replace('_s4', '_s0')
+                blobs[newkey] = blobs[k].copy()
+                logger.info('overwriting weights {:s} with {:s}'.format(newkey, k))
+
     # Return the model iter from which training should start
-    model_iter = 0
-    if 'model_iter' in blobs:
-        model_iter = blobs['model_iter']
+    if given_iter != -1:
+        model_iter = given_iter
+    else:
+        model_iter = 0
+        if 'model_iter' in blobs:
+            model_iter = blobs['model_iter']
     prev_lr = None
     if 'lr' in blobs:
         prev_lr = blobs['lr']
+
+    if cfg.MIDLEVEL.MIDLEVEL_ON:
+        oldkeys = list(blobs)
+        if model_iter % cfg.MIDLEVEL.RECLUSTER_PERIOD == 0:
+            # loaded model already have + 1
+            k = 'pred'
+            for k in oldkeys:
+                if 'pred' in k:
+                    blobs.pop(k)
+                    logger.info('deleting prediction layer {:s} after reclustering'.format(k))
+        if cfg.MIDLEVEL.INIT_WEIGHT_BROADCAST:
+            if cfg.MIDLEVEL.INIT_WEIGHT_BROADCAST_DIRECTION == 'old2new':
+                for k in oldkeys:
+                    if '_s0' in k:
+                        if model_iter == 0 and not cfg.MIDLEVEL.INIT_CONV5 and 'res5' in k:
+                            logger.info('skip broadcasting conv5 weights {:s}'.format(k))
+                            continue
+                        newkey = k.replace('_s0', '_s4')
+                        if newkey not in oldkeys:
+                            blobs[newkey] = blobs[k].copy()
+                            logger.info('broadcasting shared weights from {:s} to {:s}'.format(k, newkey))
+                        else:
+                            logger.info('new weights {:s} exists. not broadcasted'.format(newkey))
+            elif cfg.MIDLEVEL.INIT_WEIGHT_BROADCAST_DIRECTION == 'new2old':
+                if model_iter == 0:
+                    # when broadcasting new weights to 8 towers, broadcast them all no matter what!
+                    for k in oldkeys:
+                        if '_s4' in k:
+                            newkey = k.replace('_s4', '_s0')
+                            blobs[newkey] = blobs[k].copy()
+                            logger.info('broadcasting shared weights from {:s} to {:s}'.format(k, newkey))
+            else:
+                raise
+
+        elif model_iter == 0:
+            for k in oldkeys:
+                if '_s4' in k:
+                    blobs.pop(k)
+                    logger.info('deleting weights {:s}'.format(k))
 
     # initialize params, params momentum, computed params
     unscoped_blob_names = OrderedDict()
@@ -222,9 +283,9 @@ def broadcast_parameters(model, num_devices):
 
 # initialize the model from a file and broadcast the parameters to all_gpus
 # if num_devices > 1
-def initialize_params_from_file(model, weights_file, num_devices):
+def initialize_params_from_file(model, weights_file, num_devices, given_iter=-1):
     model_iter, prev_lr = initialize_master_device_model_params(
-        model, weights_file
+        model, weights_file, given_iter=given_iter
     )
     broadcast_parameters(model, num_devices)
     return model_iter, prev_lr

@@ -121,7 +121,7 @@ def get_low_shot_output_file(opts, cls, cost, suffix):
     # in case of low-shot training, we train for 5 independent samples
     # (sample{}) and vary low-shot amount (k{}). The input data should have
     # sample{}_k{} information that we extract in suffix below.
-    # logger.info('Suffix: {}'.format(suffix))
+    logger.info('Suffix: {}'.format(suffix))
     cls_cost = str(cls) + '_cost' + py2_py3_compatible_cost(cost)
     out_file = os.path.join(
         opts.output_path, 'cls' + cls_cost + '_' + suffix + '.pickle'

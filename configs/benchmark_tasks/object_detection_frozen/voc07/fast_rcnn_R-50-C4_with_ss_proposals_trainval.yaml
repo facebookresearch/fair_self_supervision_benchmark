@@ -23,11 +23,13 @@ TRAIN:
   # ResNet50 Jigsaw detection YFCC100M pretext - best
   WEIGHTS: https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/detection/resnet50_jigsaw_yfcc100m_pretext.pkl
   DATASETS: ('voc_2007_trainval',)
-  PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_trainval.pkl',)
+  # PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_trainval.pkl',)
+  PROPOSAL_FILES: ('/home/yihuihe/selective_search_msra_voc_2007_trainval.pkl',)
   # freeze the entire body and tune res5 ROI head onwards
   FREEZE_AT: 4
 TEST:
   DATASETS: ('voc_2007_test',)
-  PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_test.pkl',)
+  # PROPOSAL_FILES: ('https://dl.fbaipublicfiles.com/detectron/selective_search_proposals/selective_search_msra_voc_2007_test.pkl',)
+  PROPOSAL_FILES: ('/home/yihuihe/selective_search_msra_voc_2007_test.pkl',)
 USE_NCCL: False
 OUTPUT_DIR: ./output

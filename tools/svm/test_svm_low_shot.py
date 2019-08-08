@@ -18,7 +18,6 @@ from __future__ import unicode_literals
 from __future__ import print_function
 
 import argparse
-import json
 import logging
 import numpy as np
 import os
@@ -34,54 +33,11 @@ logging.basicConfig(level=logging.INFO, format=FORMAT, stream=sys.stdout)
 logger = logging.getLogger(__name__)
 
 
-def load_json(file_path):
-    assert os.path.exists(file_path), "{} does not exist".format(file_path)
-    with open(file_path, 'r') as fp:
-        data = json.load(fp)
-    img_ids = list(data.keys())
-    cls_names = list(data[img_ids[0]].keys())
-    return img_ids, cls_names
-
-
-def save_json_predictions(
-    opts, cost, sample_idx, k_low, features, cls_list, cls_names, img_ids
-):
-    num_classes = len(cls_list)
-    json_predictions = {}
-    for cls in range(num_classes):
-        suffix = 'sample{}_k{}'.format(sample_idx + 1, k_low)
-        model_file = svm_helper.get_low_shot_output_file(opts, cls, cost, suffix)
-        with open(model_file, 'rb') as fopen:
-            if six.PY2:
-                model = pickle.load(fopen)
-            else:
-                model = pickle.load(fopen, encoding='latin1')
-        prediction = model.decision_function(features)
-        cls_name = cls_names[cls]
-        for idx in range(len(prediction)):
-            img_id = img_ids[idx]
-            if img_id in json_predictions:
-                json_predictions[img_id][cls_name] = prediction[idx]
-            else:
-                out_lbl = {}
-                out_lbl[cls_name] = prediction[idx]
-                json_predictions[img_id] = out_lbl
-
-    output_file = os.path.join(opts.output_path, 'test_{}_json_preds.json'.format(suffix))
-    with open(output_file, 'w') as fp:
-        json.dump(json_predictions, fp)
-    logger.info('Saved json predictions to: {}'.format(output_file))
-
-
 def test_svm_low_shot(opts):
     k_values = [int(val) for val in opts.k_values.split(",")]
     sample_inds = [int(val) for val in opts.sample_inds.split(",")]
     logger.info('Testing svm for k-values: {} and sample_inds: {}'.format(
         k_values, sample_inds))
-
-    img_ids, cls_names = [], []
-    if opts.generate_json:
-        img_ids, cls_names = load_json(opts.json_targets)
 
     assert os.path.exists(opts.data_file), "Data file not found. Abort!"
     # we test the svms on the full test set. Given the test features and the
@@ -149,14 +105,6 @@ def test_svm_low_shot(opts):
             np.save(out_k_sample_file, save_data)
             logger.info('Saved sample test k_idx AP to file: {} {}'.format(
                 out_k_sample_file, save_data.shape))
-            if opts.generate_json:
-                argmax_cls = np.argmax(save_data, axis=1)
-                chosen_cost = costs_list[argmax_cls[0]]
-                logger.info('chosen cost: {}'.format(chosen_cost))
-                save_json_predictions(
-                    opts, chosen_cost, sample_idx, k_low, features, cls_list,
-                    cls_names, img_ids
-                )
     logger.info('All done!!')
 
 
@@ -166,17 +114,13 @@ def main():
                         help="Numpy file containing image features and labels")
     parser.add_argument('--targets_data_file', type=str, default=None,
                         help="Numpy file containing image labels")
-    parser.add_argument('--json_targets', type=str, default=None,
-                        help="Numpy file containing json targets")
-    parser.add_argument('--generate_json', type=int, default=0,
-                        help="Whether to generate json files for output")
-    parser.add_argument('--costs_list', type=str, default="0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0",
+    parser.add_argument('--costs_list', type=str, default="0.01,0.1",
                         help="comma separated string containing list of costs")
     parser.add_argument('--output_path', type=str, default=None,
                         help="path where trained SVM models are saved")
-    parser.add_argument('--k_values', type=str, default="1,2,4,8,16,32,64,96",
+    parser.add_argument('--k_values', type=str, default=None,
                         help="Low-shot k-values for svm testing. Comma separated")
-    parser.add_argument('--sample_inds', type=str, default="0,1,2,3,4",
+    parser.add_argument('--sample_inds', type=str, default=None,
                         help="sample_inds for which to test svm. Comma separated")
     parser.add_argument('--dataset', type=str, default="voc",
                         help='voc | places')

@@ -1,0 +1,1 @@
+/home/yihuihe/20190613/sigma5.0_LR0.1_FC16_configs/unsupervised/midlevel/pretext/resnet/IN1k_8gpu_delayed_BN_bias_decay_shift_scale.yaml.14_56_45.ZTIwqTwD

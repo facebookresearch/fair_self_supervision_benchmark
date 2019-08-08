@@ -1,0 +1,30 @@
+OPS = \
+    """
+spatial_softmax_op
+spatial_softmax_cross_entropy_loss_op
+upsample_nearest_op
+custom_resize_op
+spatial_downsample_op
+"""
+
+for op in OPS.strip().splitlines():
+    cpp_library(
+        name=op,
+        srcs=[
+            op + '.cc',
+            op + '.cu',
+        ],
+        nvcc_flags=[
+            '-gencode=arch=compute_52,code="sm_52,compute_52"',
+            "-gencode=arch=compute_60,code=\"sm_60,compute_60\"",
+            "-gencode=arch=compute_70,code=\"sm_70,compute_70\"",
+            '-std=c++11',
+        ],
+        deps=[
+            '//caffe2/caffe2:caffe2',
+        ],
+        external_deps=[
+            ("cuda", None, "cuda-lazy"),
+        ],
+        link_whole=True,
+    )
