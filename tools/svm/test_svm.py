@@ -141,7 +141,7 @@ def main():
     parser.add_argument('--data_file', type=str, default=None,
                         help="Numpy file containing image features and labels")
     parser.add_argument('--json_targets', type=str, default=None,
-                        help="Numpy file containing json targets")
+                        help="Json file containing json targets")
     parser.add_argument('--targets_data_file', type=str, default=None,
                         help="Numpy file containing image labels")
     parser.add_argument('--costs_list', type=str, default="0.01,0.1",
