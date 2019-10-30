@@ -65,6 +65,7 @@ Now clone this repository and install using instructions:
 
 ```bash
 cd $HOME && git clone --recursive https://github.com/facebookresearch/fair_self_supervision_benchmark.git
+cd fair_self_supervision_benchmark
 python setup.py install
 # To test the installation works
 python -c 'import self_supervision_benchmark'
