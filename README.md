@@ -1,3 +1,5 @@
+## FAIR Self-Supervision Benchmark is deprecated. Please see [VISSL](https://vissl.ai/), a ground-up rewrite of benchmark in [PyTorch](https://pytorch.org/).
+
 # FAIR Self-Supervision Benchmark
 
 This code provides various benchmark (and legacy) tasks for evaluating quality
