@@ -54,7 +54,8 @@ python tools/extract_features.py \
     --data_type train \
     --output_file_prefix trainval \
     --output_dir /tmp/ssl-benchmark-output/extract_features/weights_init \
-    TEST.PARAMS_FILE https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/caffenet_bvlc_in1k_supervised.npy \ TRAIN.DATA_FILE /tmp/ssl-benchmark-output/coco/train_images.npy \
+    TEST.PARAMS_FILE https://dl.fbaipublicfiles.com/fair_self_supervision_benchmark/models/caffenet_bvlc_in1k_supervised.npy \ 
+    TRAIN.DATA_FILE /tmp/ssl-benchmark-output/coco/train_images.npy \
     TRAIN.LABELS_FILE /tmp/ssl-benchmark-output/coco/train_labels.npy
 ```
 
